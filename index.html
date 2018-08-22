@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>dOOv, a fluent API for typesafe domain model validation</title>
+    <meta name="description" content="dOOv, a fluent API for typesafe domain model validation">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+* {
+  padding: 0;
+  margin: 0;
+}
+html,body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 3vw;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  color: #eeeeee; 
+  background-color: #0D1517;
+  background-image: url("conference/img/dark-bg-dots.png"), radial-gradient(circle 1000px at top center, #144F5A 40%, #0D1517 60%);
+  background-image: url("conference/img/dark-bg-dots.png"), -webkit-radial-gradient(top center, circle 1000px, #144F5A 40%, #0D1517 60%);
+}
+.content {
+  max-height: 100%;
+  overflow: auto;
+  width: 100%;
+}
+.logo {
+  text-align: center;
+  margin: 1vw auto;
+  width: 25vw;
+}
+.description {
+  text-align: center;
+  margin: auto;
+}
+.code {
+  margin: 1vw auto;
+  width: 80%;
+}
+.java {
+  padding: 20px;
+  background-color: #333333;
+  font-family: monospace;
+  font-size: 2vw;
+  text-align: left;
+}
+.github {
+  margin: 4vw;
+}
+a.button {
+  background-color: #333;
+  padding: 2vw 3vw;
+  color: white;
+  font-family: monospace;
+  text-decoration: none;
+}
+.bottom-padding {
+  height: 100px;
+}
+.bottombar {
+  background-color: #34495e;
+  bottom: 0;
+  position: absolute;
+  vertical-align: middle;
+  width: 100%;
+  padding: 1vw 1vw 0 1vw;
+}
+.lesfuretslogo {
+  width: 20vw;
+}
+.softshakelogo {
+  width: 20vw;
+}
+.snowcamplogo {
+  width: 20vw;
+}
+.jdkiologo {
+  width: 11vw;
+  background-color: #eeeeee;
+  padding: 0.2rem
+}
+.openrdaylogo {
+  width: 13vw;
+  padding: 0.2rem
+}
+.ocodelogo {
+  width: 3.4vw;
+}
+@media screen and (min-width: 1200px) {
+  body {
+     font-size: 2vw;
+  }
+  .java {
+     font-size: 1.5vw;
+  }
+  .code {
+    width: 66%;
+  }
+}
+  </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="logo">
+        <a href="http://github.com/lesfurets/dOOv">
+          <img class="logo" alt="dOOv on GitHub" src="conference/img/doov_io_logo_dark_large.png">
+        </a>
+      </div>
+
+      <div class="description">
+          Write business rules in a refreshing way
+      </div>
+      <div class="code">
+          <div class="java">
+              ValidationRule <font color="#aeaeae">rule</font> = DslSampleModel<br/>
+              &nbsp;&nbsp;&nbsp;.when(<font color="#efef8f">userBirthdate</font>.ageAt(<font color="#efef8f">today</font>()).greaterOrEquals(<font color="#8cd0d3">18</font>)<br/>
+              &nbsp;&nbsp;&nbsp;.and(<font color="#efef8f">accountEmail</font>.length().lesserOrEquals(<font color="#efef8f">maxEmailSize</font>))<br/>
+              &nbsp;&nbsp;&nbsp;.and(<font color="#efef8f">accountCountry</font>.eq(<font color="#98fb98">Country</font>.FR))<br/>
+              &nbsp;&nbsp;&nbsp;.and(<font color="#efef8f">accountPhoneNumber</font>.startsWith(<font color="#cc9393">"+33"</font>)))<br/>
+              &nbsp;&nbsp;&nbsp;.validate();
+          </div>
+      </div>
+
+      <div class="description">
+        Run with your existing JavaBeans
+     </div>
+      <div class="code">
+        <div class="java">
+          SampleModel <font color="#aeaeae">beanModel</font> = <font color="#efef8f">new</font> SampleModel();<br/>
+          &dot;&dot;&dot;<br/>
+          <font color="#aeaeae">beanModel</font>.setAccount(<font color="#efef8f">new</font> Account());<br/>
+          <font color="#aeaeae">beanModel</font>.getAccount().setPhoneNumber(<font color="#cc9393">"01 42 90 90 90"</font>);<br/>
+          &dot;&dot;&dot;<br/>
+          Result <font color="#aeaeae">result</font> = <font color="#aeaeae">rule</font>.executeOn(<font color="#aeaeae">beanModel</font>);<br/>
+        </div>
+      </div>
+
+      <div class="description">
+         Enjoy the commodities
+      </div>
+      <div class="code">
+        <div class="java">
+          System.<font color="#98fb98">out</font>.println(<font color="#aeaeae">rule</font>.readable());<br/>
+          &gt; <font color="#cc9393">rule when ((user birthdate age at today &gt; 18<br/>
+            and account email length is &lt; configuration max email size)<br/>
+            and account country = FR)<br/>
+            and account phone number starts with '+33' validate</font><br/>
+          <br/>
+          System.<font color="#98fb98">out</font>.println(<font color="#aeaeae">result</font>.isTrue());<br/>
+          &gt; <font color="#cc9393">false</font><br/>
+          <br/>
+          System.<font color="#98fb98">out</font>.println(<font color="#aeaeae">result</font>.getFailureCause());<br/>
+          &gt; <font color="#cc9393">account phone number starts with '+33'</font><br/>
+        </div>
+      </div>
+
+      <div class="description">
+        dOOv, a fluent API for typesafe domain model validation
+      </div>
+      <div class="description github">
+        <a class="button" href="http://github.com/lesfurets/dOOv">Meet dOOv on GitHub >></a>
+      </div>
+      <div class="bottom-padding"></div>
+    </div>
+    <div class="bottombar">
+      <a href="http://www.lesfurets.com"><img class="lesfuretslogo" alt="dOOv is an open source project from LesFurets.com" src="conference/img/logo_lesfurets_blanc.png"></a>
+      <a href="dsl_to_go_beyond_bean_validation_softshake.html"><img class="softshakelogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo_softshake_2017.png"></a>
+      <a href="dsl_to_go_beyond_bean_validation_snowcamp.html"><img class="snowcamplogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/snowcamp/logo-transparent-small.png"></a>
+      <a href="dsl_to_go_beyond_bean_validation_jdk_io.html"><img class="jdkiologo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo_jdk_io.png"></a>
+      <a href="dsl_to_go_beyond_bean_validation_openrday.html"><img class="openrdaylogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo-openrday.svg"></a>
+      <a href="dsl_to_go_beyond_bean_validation_ocode.html"><img class="ocodelogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo-ocode.png"></a>
+    </div>
+  </body>
+</html>
