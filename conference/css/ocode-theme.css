@@ -356,8 +356,8 @@ body {
  * FOOTER
  *********************************************/
 .footer {
+  background-color: #002837;
   background-image: url("../png/ocode-bg.png");
-  background-color: #34495e;
   bottom: 0;
   left: 0;
   position: absolute;
