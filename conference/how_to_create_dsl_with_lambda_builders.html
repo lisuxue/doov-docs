@@ -687,7 +687,9 @@ DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
         </section>
 
         <section>
-          <h2>Writting with 'noneMatch'</h2>
+          <p>
+            Writting with <strong>noneMatch</strong>
+          </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-java">
@@ -712,7 +714,6 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting with 'notEq' + 'and'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                   <code class="code lang-java">
@@ -720,9 +721,9 @@ DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
                   </code>
                 </pre>
           </div>
-          <br>could be rewritten
-          <br>
-          <br>
+          <p>
+              rewritten with <strong>notEq + and</strong>
+          </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-java">
@@ -751,22 +752,21 @@ System.out.println("&gt; " + result.getFailureCause());
           </div>
         </section>
 
-        <section>
-          <h2>Rewritting combined with 'not' + 'or'</h2>
+        <section>          
           <div class="code-wrapper small">
             <pre class="prettyprint">
                     <code class="code lang-java">
-  DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
+DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
                     </code>
                   </pre>
           </div>
-          <br>could be rewritten
-          <br>
-          <br>
+          <p>
+            rewritten with <strong>not + or</strong>
+          </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                   <code class="code lang-java">
-  DOOV.when(<mark class="true-predicate">accountCompany.eq(DAILYMOTION)</mark>
+DOOV.when(<mark class="true-predicate">accountCompany.eq(DAILYMOTION)</mark>
           .or(<mark class="false-predicate">accountCompany.eq(BLABLACAR)</mark>).not())
              .validate();
               </code>
@@ -776,9 +776,9 @@ System.out.println("&gt; " + result.getFailureCause());
           <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-java">
-  model.getAccount().setCompany(DAILYMOTION);
-  Result result = rule.withShortCircuit(false).executeOn(wrapper);
-  System.out.println("&gt; " + result.getFailureCause());
+model.getAccount().setCompany(DAILYMOTION);
+Result result = rule.withShortCircuit(false).executeOn(wrapper);
+System.out.println("&gt; " + result.getFailureCause());
                 </code>
               </pre>
           </div>
@@ -793,17 +793,16 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting with 'anyMatch'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
-                      <code class="code lang-java">
+              <code class="code lang-java">
 DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
-                      </code>
-                    </pre>
+              </code>
+            </pre>
           </div>
-          <br>could be rewritten
-          <br>
-          <br>
+          <p>
+            rewritten with <strong>anyMatch</strong>
+          </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                     <code class="code lang-java">
@@ -833,21 +832,20 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting with 'eq' + 'or'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-java">
-  DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
+DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
                 </code>
               </pre>
           </div>
-          <br>could be rewritten
-          <br>
-          <br>
+          <p>
+            rewritten with <strong>eq + or</strong>
+          </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                       <code class="code lang-java">
-  DOOV.when(
+DOOV.when(
     <mark class="false-predicate">accountCompany.eq(LES_FURETS)</mark>.or(<mark class="false-predicate">accountCompany.eq(CANAL_PLUS)</mark>
             .or(<mark class="false-predicate">accountCompany.eq(MEETIC)</mark>.or(<mark class="false-predicate">accountCompany.eq(OODRIVE)</mark>))))
                     .validate();
@@ -858,9 +856,9 @@ System.out.println("&gt; " + result.getFailureCause());
           <div class="code-wrapper small">
             <pre class="prettyprint">
                     <code class="code lang-java">
-  model.getAccount().setCompany(DAILYMOTION);
-  Result result = rule.withShortCircuit(false).executeOn(wrapper);
-  System.out.println("&gt; " + result.getFailureCause());
+model.getAccount().setCompany(DAILYMOTION);
+Result result = rule.withShortCircuit(false).executeOn(wrapper);
+System.out.println("&gt; " + result.getFailureCause());
                     </code>
                   </pre>
           </div>
@@ -880,12 +878,12 @@ System.out.println("&gt; " + result.getFailureCause());
           <div class="code-wrapper small">
             <pre class="prettyprint">
                   <code class="code lang-xml output">
-Benchmark                                        Mode  Cnt     Score      Error   Units
-<mark class="true-predicate">noneMatch                                        thrpt   20  8775.818 ± 148.951  ops/ms</mark>
-<mark>notEq + and  [failure cause OK]                  thrpt   20  5022.391 ± 147.550  ops/ms</mark>
-not + or                                         thrpt   20  3022.433 ± 586.881  ops/ms
-anyMatch  [failure cause OK]                     thrpt   20  6002.415 ±  94.531  ops/ms
-<mark class="false-predicate">eq + or                                          thrpt   20  1855.837 ±  50.183  ops/ms</mark>
+Benchmark                                     Mode  Cnt     Score      Error   Units
+<mark class="true-predicate"><strong>noneMatch</strong>                                     thrpt   20  8775.818 ± 148.951  ops/ms</mark>
+<mark><strong>notEq + and</strong>  [failure cause OK]               thrpt   20  5022.391 ± 147.550  ops/ms</mark>
+<strong>not + or</strong>                                      thrpt   20  3022.433 ± 586.881  ops/ms
+<strong>anyMatch</strong>     [failure cause OK]               thrpt   20  6002.415 ±  94.531  ops/ms
+<mark class="false-predicate"><strong>eq + or</strong>                                       thrpt   20  1855.837 ±  50.183  ops/ms</mark>
                   </code>
                 </pre>
           </div>
@@ -893,18 +891,18 @@ anyMatch  [failure cause OK]                     thrpt   20  6002.415 ±  94.531
           <div class="code-wrapper small">
             <pre class="prettyprint">
                     <code class="code lang-xml output">
-Benchmark                                           Mode  Cnt     Score      Error   Units
-noneMatch    with short circuit                     thrpt   20  6839.429 ± 262.318  ops/ms
-<mark class="true-predicate">notEq + and  with short circuit                     thrpt   20  7397.586 ± 252.090  ops/ms</mark>
-not + or     with short circuit                     thrpt   20  5084.227 ± 450.013  ops/ms
-anyMatch     with short circuit                     thrpt   20  6275.185 ±  56.600  ops/ms
-<mark class="false-predicate">eq + or      with short circuit                     thrpt   20  1820.198 ±  60.300  ops/ms</mark>
+Benchmark                                     Mode  Cnt     Score      Error   Units
+<strong>noneMatch</strong>    with short circuit               thrpt   20  6839.429 ± 262.318  ops/ms
+<mark class="true-predicate"><strong>notEq + and</strong>  with short circuit               thrpt   20  7397.586 ± 252.090  ops/ms</mark>
+<strong>not + or</strong>     with short circuit               thrpt   20  5084.227 ± 450.013  ops/ms
+<strong>anyMatch</strong>     with short circuit               thrpt   20  6275.185 ±  56.600  ops/ms
+<mark class="false-predicate"><strong>eq + or</strong>      with short circuit               thrpt   20  1820.198 ±  60.300  ops/ms</mark>
                     </code>
                   </pre>
           </div>
           <br>
-          'notEq + and' is the overall winner<br>
-          'anyMatch' is the winner only for enumerated values
+          <strong>notEq + and</strong> is the overall winner<br>
+          <strong>anyMatch</strong> is the winner only for enumerated values
         </section>
 
       </section>
