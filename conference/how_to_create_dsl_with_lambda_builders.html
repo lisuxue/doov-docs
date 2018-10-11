@@ -436,10 +436,6 @@ public void test_account_failure_cause_2() {
           </div>
         </section>
 
-        <section>
-          <img src="img/exclusions_maintenance_page.png" width="90%">
-        </section>
-
       </section>
 
       <section>
@@ -630,6 +626,10 @@ userAboutMe().length().between(10, 200).validate().readable()
         </section>
 
         <section>
+          <img src="img/exclusions_maintenance_page.png" width="90%">
+        </section>
+
+        <section>
           <img src="img/doov_bench_ui.png" width="90%">
           <p>Visit our blog for details:
             <a href="https://beastie.lesfurets.com/articles/doov-revisits-bean-validation-benchmark">https://beastie.lesfurets.com</a>
@@ -668,7 +668,7 @@ userAboutMe().length().between(10, 200).validate().readable()
 
       <section>
         <section>
-          <h1>Going further</h1>
+          <h2>Going further</h2>
         </section>
 
         <section>
@@ -687,7 +687,7 @@ DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
         </section>
 
         <section>
-          <h2>Rewritting #1</h2>
+          <h2>Writting with 'noneMatch'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-java">
@@ -712,7 +712,7 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting #2</h2>
+          <h2>Rewritting with 'notEq' + 'and'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                   <code class="code lang-java">
@@ -752,7 +752,7 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting #3</h2>
+          <h2>Rewritting combined with 'not' + 'or'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                     <code class="code lang-java">
@@ -793,7 +793,7 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting #4</h2>
+          <h2>Rewritting with 'anyMatch'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                       <code class="code lang-java">
@@ -833,7 +833,7 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <h2>Rewritting #5</h2>
+          <h2>Rewritting with 'eq' + 'or'</h2>
           <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-java">
@@ -881,11 +881,11 @@ System.out.println("&gt; " + result.getFailureCause());
             <pre class="prettyprint">
                   <code class="code lang-xml output">
 Benchmark                                        Mode  Cnt     Score      Error   Units
-<mark class="true-predicate">test_account_1                                   thrpt   20  8775.818 ± 148.951  ops/ms</mark>
-<mark>test_account_2  [failure cause OK]               thrpt   20  5022.391 ± 147.550  ops/ms</mark>
-test_account_3                                   thrpt   20  3022.433 ± 586.881  ops/ms
-test_account_4  [failure cause OK]               thrpt   20  6002.415 ±  94.531  ops/ms
-<mark class="false-predicate">test_account_5                                   thrpt   20  1855.837 ±  50.183  ops/ms</mark>
+<mark class="true-predicate">noneMatch                                        thrpt   20  8775.818 ± 148.951  ops/ms</mark>
+<mark>notEq + and  [failure cause OK]                  thrpt   20  5022.391 ± 147.550  ops/ms</mark>
+not + or                                         thrpt   20  3022.433 ± 586.881  ops/ms
+anyMatch  [failure cause OK]                     thrpt   20  6002.415 ±  94.531  ops/ms
+<mark class="false-predicate">eq + or                                          thrpt   20  1855.837 ±  50.183  ops/ms</mark>
                   </code>
                 </pre>
           </div>
@@ -893,18 +893,18 @@ test_account_4  [failure cause OK]               thrpt   20  6002.415 ±  94.531
           <div class="code-wrapper small">
             <pre class="prettyprint">
                     <code class="code lang-xml output">
-Benchmark                                        Mode  Cnt     Score      Error   Units
-test_account_1_short_circuit                     thrpt   20  6839.429 ± 262.318  ops/ms
-<mark class="true-predicate">test_account_2_short_circuit                     thrpt   20  7397.586 ± 252.090  ops/ms</mark>
-test_account_3_short_circuit                     thrpt   20  5084.227 ± 450.013  ops/ms
-test_account_4_short_circuit                     thrpt   20  6275.185 ±  56.600  ops/ms
-<mark class="false-predicate">test_account_5_short_circuit                     thrpt   20  1820.198 ±  60.300  ops/ms</mark>
+Benchmark                                           Mode  Cnt     Score      Error   Units
+noneMatch    with short circuit                     thrpt   20  6839.429 ± 262.318  ops/ms
+<mark class="true-predicate">notEq + and  with short circuit                     thrpt   20  7397.586 ± 252.090  ops/ms</mark>
+not + or     with short circuit                     thrpt   20  5084.227 ± 450.013  ops/ms
+anyMatch     with short circuit                     thrpt   20  6275.185 ±  56.600  ops/ms
+<mark class="false-predicate">eq + or      with short circuit                     thrpt   20  1820.198 ±  60.300  ops/ms</mark>
                     </code>
                   </pre>
           </div>
           <br>
-          #2 approach is the overall winner<br>
-          #4 approach is the winner only for listed values
+          'notEq + and' is the overall winner<br>
+          'anyMatch' is the winner only for enumerated values
         </section>
 
       </section>
