@@ -55,9 +55,9 @@
         </section>
         <section>
           <div class="">
-            <h2>@ogunalp – Ozan Gunalp</h2>
+            <h2>@ozangunalp – Ozan Gunalp</h2>
             <ul>
-              <li>PhD in Computer Science, Jenkins Pipeline Unit author</li>
+              <li>PhD in Computer Science, JenkinsPipelineUnit author</li>
               <li>Software Architect at LesFurets.com</li>
             </ul>
           </div>
@@ -188,6 +188,25 @@ public ExclusionRule exclusionRule() {
           </div>
         </section>
 
+        <section>
+          <h2>Why a fluent API?</h2>
+          <p>Java is verbose, but you can reduce the noise and write code like natural language with a fluent API</p>
+          <div class="code-wrapper">
+            <pre class="prettyprint">
+                <code class="code lang-java">
+// SQL query with jOOQ
+DSL.using(conn)
+        .selectFrom(SALES)
+        .where(MODULE.equal(module.getIntValue()))
+        .and(NOTIF_DATETIME.greaterOrEqual(from))
+        .and(DELETED.equal(SaleState.NO.getIntValue()))
+        .stream()
+        .map(SalesDAO::toSale)
+        .collect(toList());
+                </code>
+              </pre>
+          </div>
+        </section>
 
         <section>
           <h2>Meet dOOv!</h2>
@@ -560,6 +579,19 @@ public void test_account_failure_cause_2() {
       <section>
         <section>
           <h2>Beyond bean validation</h2>
+          <div class="code-wrapper">
+            <pre class="prettyprint">
+                <code class="code lang-java">
+public class User {
+
+    @NotNull @Past
+    private LocalDate birthDate;
+}
+                </code>
+              </pre>
+          </div>
+          <p>Bean Validation 2.0 : <strong>JSR 380</strong><br>
+            Reference implementation : <strong>Hibernate Validator</strong></p>
         </section>
 
         <section>
