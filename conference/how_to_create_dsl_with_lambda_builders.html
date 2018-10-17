@@ -692,8 +692,18 @@ userAboutMe().length().between(10, 200).validate().readable()
         <section>
           <h2>Going further</h2>
         </section>
-
         <section>
+          <h2>Going further : Implementing rules</h2>
+          <div class="code-wrapper small">
+            <pre class="prettyprint">
+              <code class="code lang-java">
+enum Company {
+    BLABLACAR, CANAL_PLUS, DAILYMOTION,
+    LES_FURETS, MEETIC, OODRIVE,
+}
+              </code>
+            </pre>
+          </div>
           <p>
             <em>Validate that the company of an account should
               <strong>NOT</strong> be
@@ -709,8 +719,27 @@ DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
         </section>
 
         <section>
+          <h2>Implementing boolean logic</h2>
+          <div class="code-wrapper">
+            <pre class="prettyprint">
+              <code class="code lang-java">
+¬ DAILYMOTION ∧ ¬ BLABLACAR
+// is equivalent to
+¬ ( DAILYMOTION ∨ BLABLACAR )
+// is equivalent to
+LES_FURETS ∨ CANAL_PLUS ∨ MEETIC ∨ OODRIVE
+              </code>
+            </pre>
+          </div>
+          <br>
+          <p>De Morgan's laws<br>
+          https://en.wikipedia.org/wiki/De_Morgan's_laws<br>
+          https://en.wikipedia.org/wiki/Conjunctive_normal_form</p>
+        </section>
+
+        <section>
           <p>
-            Writting with <strong>noneMatch</strong>
+            Failure cause with <strong>noneMatch</strong>
           </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
@@ -720,7 +749,7 @@ model.getAccount().setCompany(DAILYMOTION);
 ValidationRule rule = DOOV
       .when(<mark class="false-predicate">accountCompany.noneMatch(DAILYMOTION, BLABLACAR)</mark>)
       .validate();
-Result result = rule.withShortCircuit(false).executeOn(wrapper);
+Result result = rule.withShortCircuit(false).executeOn(model);
 System.out.println("&gt; " + result.getFailureCause());
                   </code>
                 </pre>
@@ -736,15 +765,8 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
-                  <code class="code lang-java">
-DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
-                  </code>
-                </pre>
-          </div>
           <p>
-              rewritten with <strong>notEq + and</strong>
+            Failure cause with <strong>notEq + and</strong>
           </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
@@ -757,33 +779,17 @@ DOOV.when(<mark class="false-predicate">accountCompany.notEq(DAILYMOTION)</mark>
           <br>
           <div class="code-wrapper small">
             <pre class="prettyprint">
-              <code class="code lang-java">
-model.getAccount().setCompany(DAILYMOTION);
-Result result = rule.withShortCircuit(false).executeOn(wrapper);
-System.out.println("&gt; " + result.getFailureCause());
-              </code>
-            </pre>
-          </div>
-          <br>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
                     <code class="code lang-xml output">
   &gt; account company != DAILYMOTION
                     </code>
               </pre>
           </div>
+          <p>Conjuctive Normal Form (CNF)</p>
         </section>
 
-        <section>          
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
-                    <code class="code lang-java">
-DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
-                    </code>
-                  </pre>
-          </div>
+        <section>
           <p>
-            rewritten with <strong>not + or</strong>
+            Failure cause with <strong>not + or</strong>
           </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
@@ -797,16 +803,6 @@ DOOV.when(<mark class="true-predicate">accountCompany.eq(DAILYMOTION)</mark>
           <br>
           <div class="code-wrapper small">
             <pre class="prettyprint">
-                <code class="code lang-java">
-model.getAccount().setCompany(DAILYMOTION);
-Result result = rule.withShortCircuit(false).executeOn(wrapper);
-System.out.println("&gt; " + result.getFailureCause());
-                </code>
-              </pre>
-          </div>
-          <br>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
                       <code class="code lang-xml output">
     &gt; not (account company = DAILYMOTION or account company = BLABLACAR)
                       </code>
@@ -815,15 +811,8 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
-              <code class="code lang-java">
-DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
-              </code>
-            </pre>
-          </div>
           <p>
-            rewritten with <strong>anyMatch</strong>
+            Failure cause with <strong>anyMatch</strong>
           </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
@@ -836,16 +825,6 @@ DOOV.when(<mark class="false-predicate">accountCompany.anyMatch(LES_FURETS, CANA
           <br>
           <div class="code-wrapper small">
             <pre class="prettyprint">
-                  <code class="code lang-java">
-model.getAccount().setCompany(DAILYMOTION);
-Result result = rule.withShortCircuit(false).executeOn(wrapper);
-System.out.println("&gt; " + result.getFailureCause());
-                  </code>
-                </pre>
-          </div>
-          <br>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
                 <code class="code lang-xml output">
 &gt; account company != DAILYMOTION
                 </code>
@@ -854,15 +833,8 @@ System.out.println("&gt; " + result.getFailureCause());
         </section>
 
         <section>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
-                <code class="code lang-java">
-DOOV.when(accountCompany.noneMatch(DAILYMOTION, BLABLACAR)).validate();
-                </code>
-              </pre>
-          </div>
           <p>
-            rewritten with <strong>eq + or</strong>
+            Failure cause with <strong>eq + or</strong>
           </p>
           <div class="code-wrapper small">
             <pre class="prettyprint">
@@ -873,16 +845,6 @@ DOOV.when(
                     .validate();
                   </code>
                 </pre>
-          </div>
-          <br>
-          <div class="code-wrapper small">
-            <pre class="prettyprint">
-                    <code class="code lang-java">
-model.getAccount().setCompany(DAILYMOTION);
-Result result = rule.withShortCircuit(false).executeOn(wrapper);
-System.out.println("&gt; " + result.getFailureCause());
-                    </code>
-                  </pre>
           </div>
           <br>
           <div class="code-wrapper small">
@@ -923,8 +885,8 @@ Benchmark                                     Mode  Cnt     Score      Error   U
                   </pre>
           </div>
           <br>
-          <strong>notEq + and</strong> is the overall winner<br>
-          <strong>anyMatch</strong> is the winner only for enumerated values
+          <strong>notEq + and (CNF)</strong> is the overall winner<br>
+          <strong>anyMatch (on inverse subset)</strong> is the winner only for enumerated values
         </section>
 
       </section>
