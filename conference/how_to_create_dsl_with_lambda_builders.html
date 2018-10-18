@@ -785,7 +785,7 @@ System.out.println("&gt; " + result.getFailureCause());
             <pre class="prettyprint">
                 <code class="code lang-java">
 DOOV.when(<mark class="false-predicate">accountCompany.notEq(DAILYMOTION)</mark>
-            .and(<mark class="true-predicate">accountCompany.notEq(BLABLACAR)</mark>)).validate();
+        .and(<mark class="true-predicate">accountCompany.notEq(BLABLACAR)</mark>)).validate();
             </code>
           </pre>
           </div>
@@ -808,8 +808,7 @@ DOOV.when(<mark class="false-predicate">accountCompany.notEq(DAILYMOTION)</mark>
             <pre class="prettyprint">
                   <code class="code lang-java">
 DOOV.when(<mark class="true-predicate">accountCompany.eq(DAILYMOTION)</mark>
-          .or(<mark class="false-predicate">accountCompany.eq(BLABLACAR)</mark>).not())
-             .validate();
+        .or(<mark class="false-predicate">accountCompany.eq(BLABLACAR)</mark>).not()).validate();
               </code>
             </pre>
           </div>
@@ -852,10 +851,9 @@ DOOV.when(<mark class="false-predicate">accountCompany.anyMatch(LES_FURETS, CANA
           <div class="code-wrapper small">
             <pre class="prettyprint">
                       <code class="code lang-java">
-DOOV.when(
-    <mark class="false-predicate">accountCompany.eq(LES_FURETS)</mark>.or(<mark class="false-predicate">accountCompany.eq(CANAL_PLUS)</mark>
-            .or(<mark class="false-predicate">accountCompany.eq(MEETIC)</mark>.or(<mark class="false-predicate">accountCompany.eq(OODRIVE)</mark>))))
-                    .validate();
+DOOV.when(<mark class="false-predicate">accountCompany.eq(LES_FURETS)</mark>.or(<mark class="false-predicate">accountCompany.eq(CANAL_PLUS)</mark>
+        .or(<mark class="false-predicate">accountCompany.eq(MEETIC)</mark>.or(<mark class="false-predicate">accountCompany.eq(OODRIVE)</mark>))))
+                .validate();
                   </code>
                 </pre>
           </div>
