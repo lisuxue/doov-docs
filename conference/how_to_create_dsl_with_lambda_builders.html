@@ -219,7 +219,23 @@ DSL.using(conn)
           <p>dOOv is a fluent API for typesafe domain model validation</p>
         </section>
 
-
+        <section>
+          <p>
+            <strong>D</strong>omain
+            <strong>O</strong>bject
+            <strong>O</strong>riented
+            <strong>V</strong>alidation</p>
+          <div class="code-wrapper">
+            <pre class="prettyprint">
+                <code class="code lang-java">
+DOOV.when(accountCompany.eq(Company.LES_FURETS)
+            .and(accountPhoneNumber.startsWith("+33"))).validate();
+                </code>
+              </pre>
+          </div>
+          <br/>
+          <img src="img/metadata_lambda_tree.svg" width="90%">
+        </section>
       </section>
 
       <section>
