@@ -14,15 +14,15 @@ rewriting.
 
 # Comment créer son propre langage avec un fluent API et un lambda builder ?
 
-fr_FR : Avec le framwork dOOv, nous allons tester une nouvelle approche pour résoudre un problème
-récurrent dans nos applications: performance vs. lisibilité vs. typage fort.
-Depuis Java 8, l'API lambda permet de composer des fonctions avec d'excellentes performances à l'exécution.
-dOOv fournit un fluent API qui permet d'écrire la logique d'une application avec une approche
-de DSL 'pur Java' et crée des lambdas pour l'exécution.
-Il devient possible de parcourir l'arbre de syntaxe du DSL lors de l'exécution et d'effectuer
-des réécritures dynamiquement. Pendant la session, nous présenterons le fonctionnement du framework,
+fr_FR : Avec le framework dOOv, nous adoptons une nouvelle approche pour résoudre un problème
+récurrent dans nos applications: conjuger performance, lisibilité et typage fort.
+Depuis Java 8, les lambdas permettent de composer des fonctions avec d'excellentes performances à l'exécution.
+dOOv fournit une fluent API qui permet d'écrire la logique d'une application avec un DSL 'pur Java' 
+et construit des lambdas pour l'exécution.
+Il devient possible de parcourir l'arbre de syntaxe du DSL lors de l'exécution et d'effectuer dynamiquement
+des réécritures. Pendant la session, nous présenterons le fonctionnement du framework,
 les problèmes rencontrés pour générer du langage naturel, l'instrumentation du code écrit en DSL et 
-la réécriture des arbres de syntaxe pour les afficher sous forme canonique après leur exécution.
+la réécriture des arbres de syntaxe pour les afficher sous forme canonique.
 
 ## Status 
 
@@ -44,13 +44,14 @@ Then we will migrate the application logic and the mapping code to ensure
 the compliance and governance of the partner exchanges. Finally, we will 
 evaluate the performance and flexibility gains.
 
-# Créer son propre DSL en java avec le framework dOOv
+# Adopter une approche DDD en Java avec le framework dOOv
 
-fr_FR : Vous n'avez jamais expérimenté l'utilisation d'un DSL car les frameworks
-à mettre en place sont souvent complexes et hors de l'écosystème java ?
+fr_FR : 
+Avez-vous toujours voulu expérimenter avec l'approche DDD sur votre projet 
+mais vous ne savez pas par où commencer ?  
 Dans cette session, nous allons vous montrer comment moderniser à l'aide d'un
 DSL 'pur Java', une application de e-commerce qui utilise des règles de validation
-écrites avec BeanValidation et une logique métier écrite en java.
+écrites avec BeanValidation et une logique métier écrite en Java.
 Nous utiliserons le framework dOOv pour réécrire la partie BeanValidation et nous
 découvrirons les bénéfices du fluent API fortement typé de dOOv.
 Nous migrerons ensuite l'intégralité de la logique métier et du code de mapping en
