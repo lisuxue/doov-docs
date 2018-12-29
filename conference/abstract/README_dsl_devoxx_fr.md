@@ -74,6 +74,14 @@ Il permet de muter dynamiquement un programme écrit avec ce DSL pendant son ex�
 l'écriture d'algorithmes génétiques en Java.
 Dans cette présentation, nous allons utiliser dOOv pour construire un set de contraintes associées
 à une image que nous allons faire évoluer incrémentalement jusqu'à obtenir un dessin identique à l'original.
+ 
+Yes, Java can do street art !
+
+en_GB : Can a dynamic ruleset evolve well enough to draw like Banksy ?
+
+The dOOv framework allow us to generate pure Java DSLs from object models. With it, we can mutate and evolve programs with the DSL abstract syntax tree API and collect metrics and tracing info on rules usage.
+It allow us to clearly define and monitor production systems... or evolutionary algorithms!
+We are going to use dOOv to define a tree of constraints on a given image and let it evolves long enough to repoduce the original.
 
 Yes, Java can do street art !
 
