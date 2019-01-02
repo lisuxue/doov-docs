@@ -15,7 +15,7 @@ rewriting.
 # Comment créer son propre langage avec un fluent API et un lambda builder ?
 
 fr_FR : Avec le framework dOOv, nous adoptons une nouvelle approche pour résoudre un problème
-récurrent dans nos applications: conjuger performance, lisibilité et typage fort.
+récurrent dans nos applications: conjuguer performance, lisibilité et typage fort.
 Depuis Java 8, les lambdas permettent de composer des fonctions avec d'excellentes performances à l'exécution.
 dOOv fournit une fluent API qui permet d'écrire la logique d'une application avec un DSL 'pur Java' 
 et construit des lambdas pour l'exécution.
@@ -95,11 +95,11 @@ our project and present it in conferences because domain object validation is a
 recurrent and important problem in our work, so it might help others. We like
 to get feedback on dOOv, discuss about usage and future improvements.
 
-fr_FR : Nous avons développé dOOv pour migrer plus de 500 règles métier de filtrage dans un
+fr_FR : Nous avons développé dOOv pour migrer plus de 500 règles métiers de filtrage dans un
 format qui permette une maintenance aisée et une relecture efficace par des utilisateurs
 hors de l'équipe de développement. Le projet est open source, nous le faisons évoluer depuis
 plus de 2 ans.
-En 2018, nous l'avons présenté dans une dizaine de conférences et nous avons capturé pas mal de retour
-et d'amélioration sur le projet.
+En 2018, nous avons intégré un grand nombre de retours et d'améliorations lors de la
+présentation du projet dans différentes conférences.
 La validation et le mapping d'objet métier est un problème récurrent dans notre travail et
 nous espérons que d'autres équipes pourrons bénéficier de l'expérience accumulée.
