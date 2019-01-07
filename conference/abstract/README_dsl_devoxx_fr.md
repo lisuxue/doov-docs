@@ -7,7 +7,7 @@ performance vs. readability vs. type-safety. Since Java 8, lambdas offer the
 ability to compose functions at runtime with high performance. We built a 
 fluent API using lambdas to write validation and mapping logic with a DSL. It 
 enables the written application rules to be introspected and profiled by 
-visiting the DSL abstract syntax tree at runtime. During this BOF we will 
+visiting the DSL abstract syntax tree at runtime. During this session we will 
 discuss how the framework is designed, the issues that we encountered 
 generating the natural language output, failure cause analysis, and AST 
 rewriting.
