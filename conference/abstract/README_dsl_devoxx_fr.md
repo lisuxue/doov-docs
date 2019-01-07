@@ -71,11 +71,27 @@ pour dessiner comme Banksy ?
 
 Le framework dOOv permet de générer des DSL 'pur java' en partant d'un modèle objet.
 Il permet de muter dynamiquement un programme écrit avec ce DSL pendant son exécution et facilite
-l'écriture d'algorithmes génétiques en Java.
-Dans cette présentation, nous allons utiliser dOOv pour construire un set de contraintes associées
-à une image que nous allons faire évoluer incrémentalement jusqu'à obtenir un dessin identique à l'original.
+l'écriture d'algorithmes génétiques en Java sans sacrifier en performance.
+
+Nous allons vous le prouver en apprenant à reproduire quelques graphes de Banksy !
+
+Dans cette présentation, nous allons utiliser dOOv pour contruire un DSL permettant d'exprimer des contraintes sur des pixels,
+puis appliquer à ces règle des sélections, des mutations et des reproductions : en bref un algorithme génétique. 
 
 Yes, Java can do street art !
+
+en_GB : Can a dynamic ruleset compete with Banksy ?
+
+The dOOv framework generates pure java DSL from any object model. It allows us to mutate programs written with the DSL during
+execution.
+Thus it makes the writing and conception of genetic algorithm way more straightforward without compromising on performances.
+
+We are going to prove it by learning to draw some works from Bansky!
+
+In this talk, we are going to use dOOv to build a DSL expressing constraints on pixels, 
+and then apply to those rules selections, mutations and breeding : a genetic optimisation algorithm.
+
+Yes, Java can do street art!
 
 ## Status
 
