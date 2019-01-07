@@ -84,7 +84,7 @@ en_GB : Can a dynamic ruleset compete with Banksy ?
 
 The dOOv framework generates pure java DSL from any object model. It allows us to mutate programs written with the DSL during
 execution.
-Thus it makes the writing and conception of genetic algorithm way more straightforward without compromising on performances.
+It enables design and develop of genetic algorithms in a way more expressive fashion without compromising on performances.
 
 We are going to prove it by learning to draw some works from Bansky!
 
