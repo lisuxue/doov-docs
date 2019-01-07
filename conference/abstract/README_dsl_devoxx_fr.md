@@ -80,7 +80,7 @@ puis appliquer à ces règle des sélections, des mutations et des reproductions
 
 Yes, Java can do street art !
 
-en_EN : Can a dynamic ruleset compete with Banksy ?
+en_GB : Can a dynamic ruleset compete with Banksy ?
 
 The dOOv framework generates pure java DSL from any object model. It allows us to mutate programs written with the DSL during
 execution.
