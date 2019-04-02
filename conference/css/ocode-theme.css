@@ -482,6 +482,14 @@ code.output {
   background-color: white;
 }
 
+mark.in-model {
+  background-color: orange;
+}
+
+mark.out-model {
+  background-color: #59B2AC;
+}
+
 code.output span.pln,
 code.output span.pun {
   color: black !important;

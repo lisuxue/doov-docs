@@ -697,6 +697,129 @@ userAboutMe().length().between(10, 200).validate().readable()
           <h2>Going further</h2>
         </section>
 
+          <section data-transition="fade-in slide-out">
+              <h2>LesFurets service Mapping</h2>
+              <img width="80%" src="img/lf_scatter_gather_mapping_rules.png">
+          </section>
+
+          <section>
+              <h2>Domain Object Oriented Mapping</h2>
+              <p>Next step is extending the DSL to create a<br>
+                  <strong>bean mapping framework</strong>
+                  <p>It features the same AST to text and statistics functionalities.</p>
+          </section>
+
+          <section>
+              <h2>Use Case : Object-to-Object Mapping</h2>
+              <div class="horizontal">
+                  <div class="column">
+                      <p>
+                          <strong style="color:orange">source model</strong>
+                      </p>
+                      <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-java">
+class Model {
+  User user;
+  Account account;
+}
+
+class User {
+  String firstName;
+  String lastName;
+  LocalDate birthdate;
+}
+
+class Account {
+  String email;
+  boolean acceptEmail;
+  Country country;
+}
+                    </code>
+                  </pre>
+                      </div>
+                  </div>
+                  <div class="column fragment">
+                      <p>→</p>
+                  </div>
+                  <div class="column fragment">
+                      <p class="in-model">
+                          <strong style="color:#59B2AC">target model</strong>
+                      </p>
+                      <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-java">
+class Employee {
+  String fullName;
+  String email;
+  int age;
+  String country;
+  String company;
+}
+                    </code>
+                  </pre>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+
+          <section>
+              <h2>Use Case : Object-to-Object Mapping</h2>
+              <div class="code-wrapper">
+                  <pre class="prettyprint">
+                      <code class="code lang-java">
+Model model = ...;
+Employee employee = new Employee();
+<span class="fragment">// declarative mapping rule
+MappingRule rules = mappings(
+  <span class="fragment">when(<mark class="in-model">accountAcceptEmail</mark>.isTrue())
+      .then(map(<mark class="in-model">accountEmail</mark>).to(<mark class="out-model">employeeEmail</mark>)),</span>
+
+  <span class="fragment">map(<mark class="in-model">userFirstName</mark>, <mark class="in-model">userLastName</mark>)
+      .using(biConverter((f, l) -> f + " " + l, "", "combine names"))
+      .to(<mark class="out-model">employeeFullname</mark>),</span>
+
+  <span class="fragment">map(<mark class="in-model">userBirthdate</mark>.ageAt(today())).to(<mark class="out-model">employeeAge</mark>),</span>
+
+  <span class="fragment">map(<mark class="in-model">accountCountry</mark>)
+      .using(converter(c -> c.name(), "country name"))
+      .to(<mark class="out-model">employeeCountry</mark>)</span>
+);</span>
+<span class="fragment">// then execute the mapping
+rules.executeOn(model, employee)
+</span>
+                    </code>
+                </pre>
+              </div>
+          </section>
+
+          <section>
+              <h2>Use Case : Object Manipulation</h2>
+              <div class="code-wrapper">
+            <pre class="prettyprint">
+                <code class="code lang-java">
+MappingRule rules = mappings(
+  when(<mark class="out-model">employeeAge</mark>.lesserThan(18))
+      .then(mapNull(<mark class="out-model">employeeFullname</mark>)),
+  map(<mark class="out-model">employeeEmail</mark>)
+      .using(converter(s -> sha256.hashString(s), "sha256 string"))
+      .to(<mark class="out-model">employeeEmail</mark>)
+)
+// then execute the mapping
+.executeOn(employee, employee)
+                </code>
+              </pre>
+              </div>
+              <p>We survived the <strong>GDPR</strong>!</p>
+          </section>
+
+          <section>
+              <h2>Comes with all the goodies!</h2>
+              <p>Export to text, markdown, HTML</p>
+              <img width="50%" src="img/mapping_html_example.png">
+              <p>Runtime statistics</p>
+          </section>
 
       </section>
       <section>
@@ -733,28 +856,6 @@ userAboutMe().length().between(10, 200).validate().readable()
             <li>
               <strong>HTML rendering</strong> including mapping rules and templates</li>
           </ul>
-        </section>
-
-        <section>
-          <h2>What is dOOm?</h2>
-          <p>Next step is extending the DSL to create an
-            <strong>object to object mapping framework</strong>, Domain Object Oriented Mapping (
-            <strong>dOOm</strong>). It will feature the same AST to text and statistics functionnalities.</p>
-          <div class="code-wrapper">
-            <pre class="prettyprint">
-                <code class="code lang-java">
-DOOV.mappings(
-  map(userEmail).to(insurerEmail),
-  map(userFirstName, userLastName)
-      .using(StringJoiner)
-      .to(insurerFullName),
-  when(userCountry.eq(FR))
-    .map(userPhone.to(insurerPhone))
-)
-                </code>
-              </pre>
-          </div>
-          <p>Stay tuned for the next versions!</p>
         </section>
 
         <section>
