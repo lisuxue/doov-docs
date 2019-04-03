@@ -768,8 +768,7 @@ class Employee {
               <h2>Use Case : Object-to-Object Mapping</h2>
               <div class="code-wrapper">
                   <pre class="prettyprint">
-                      <code class="code lang-java">
-Model model = ...;
+                      <code class="code lang-java">Model model = ...;
 Employee employee = new Employee();
 <span class="fragment">// declarative mapping rule
 MappingRule rules = mappings(
@@ -787,10 +786,77 @@ MappingRule rules = mappings(
       .to(<mark class="out-model">employeeCountry</mark>)</span>
 );</span>
 <span class="fragment">// then execute the mapping
-rules.executeOn(model, employee)
-</span>
+rules.executeOn(model, employee)</span>
                     </code>
                 </pre>
+              </div>
+          </section>
+          <section>
+              <h2>Use Case : Object-to-Object Mapping</h2>
+              <div class="horizontal">
+                  <div class="column column-2">
+              <div class="code-wrapper smaller">
+                  <pre class="prettyprint">
+                      <code class="code lang-java">Model model = ...;
+Employee employee = new Employee();
+// declarative mapping rule
+MappingRule rules = mappings(
+  when(<mark class="in-model">accountAcceptEmail</mark>.isTrue())
+      .then(map(<mark class="in-model">accountEmail</mark>).to(<mark class="out-model">employeeEmail</mark>)),
+
+  map(<mark class="in-model">userFirstName</mark>, <mark class="in-model">userLastName</mark>)
+      .using(biConverter(
+            (f, l) -> f + " " + l, "", "combine names"))
+      .to(<mark class="out-model">employeeFullname</mark>),
+
+  map(<mark class="in-model">userBirthdate</mark>.ageAt(today())).to(<mark class="out-model">employeeAge</mark>),
+
+  map(<mark class="in-model">accountCountry</mark>)
+      .using(converter(c -> c.name(), "country name"))
+      .to(<mark class="out-model">employeeCountry</mark>)
+);
+// then execute the mapping
+rules.executeOn(model, employee)</code>
+                </pre>
+              </div>
+                  </div>
+                  <div class="column column-2" style="width: 800px; height: auto;" >
+                      <img width="80%" src="img/mapping_html_en.png">
+                  </div>
+              </div>
+          </section>
+          <section>
+              <h2>Use Case : Object-to-Object Mapping</h2>
+              <div class="horizontal">
+                  <div class="column column-2">
+              <div class="code-wrapper smaller">
+                  <pre class="prettyprint">
+                      <code class="code lang-java">Model model = ...;
+Employee employee = new Employee();
+// declarative mapping rule
+MappingRule rules = mappings(
+  when(<mark class="in-model">accountAcceptEmail</mark>.isTrue())
+      .then(map(<mark class="in-model">accountEmail</mark>).to(<mark class="out-model">employeeEmail</mark>)),
+
+  map(<mark class="in-model">userFirstName</mark>, <mark class="in-model">userLastName</mark>)
+      .using(biConverter(
+            (f, l) -> f + " " + l, "", "combine names"))
+      .to(<mark class="out-model">employeeFullname</mark>),
+
+  map(<mark class="in-model">userBirthdate</mark>.ageAt(today())).to(<mark class="out-model">employeeAge</mark>),
+
+  map(<mark class="in-model">accountCountry</mark>)
+      .using(converter(c -> c.name(), "country name"))
+      .to(<mark class="out-model">employeeCountry</mark>)
+);
+// then execute the mapping
+rules.executeOn(model, employee)</code>
+                </pre>
+              </div>
+                  </div>
+                  <div class="column column-2" style="width: 800px; height: auto;" >
+                      <img width="80%" src="img/mapping_html_it.png">
+                  </div>
               </div>
           </section>
 
@@ -812,13 +878,6 @@ MappingRule rules = mappings(
               </pre>
               </div>
               <p>We survived the <strong>GDPR</strong>!</p>
-          </section>
-
-          <section>
-              <h2>Comes with all the goodies!</h2>
-              <p>Export to text, markdown, HTML</p>
-              <img width="50%" src="img/mapping_html_example.png">
-              <p>Runtime statistics</p>
           </section>
 
       </section>
