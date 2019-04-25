@@ -174,7 +174,7 @@ public void check(FieldContext context, FormuleMoto formule, Conducteur conducte
             <pre class="prettyprint">
                 <code class="code lang-java">
 public ExclusionRule exclusionRule() {
-    return DOOV.when(dateContrat().after(todayPlusDays(60)))
+    return DOOV.when(dateContrat.after(todayPlusDays(60)))
                .exclusionRule();
 }
                 </code>
