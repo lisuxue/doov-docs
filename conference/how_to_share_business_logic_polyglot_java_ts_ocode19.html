@@ -212,7 +212,7 @@ DOOV.when(accountCompany.eq(Company.LES_FURETS)
                 <img src="img/metadata_lambda_tree.svg" width="90%">
             </section>
             <section>
-                <h2>DEMO Java</h2>
+                <h2>DEMO</h2>
             </section>
             <section>
                 <h2>Export to text, markdown,...</h2>
@@ -450,35 +450,79 @@ MappingRule rules = mappings(
             </section>
 
             <section data-transition="fade-in slide-out">
-                <h2>LesFurets Web Form</h2>
-<!--                TODO-->
-                <p>TODO : ZOOM on a field </p>
-                <img width="66%" src="img/lf_car_journey.png">
+                <h2>Web Form Rules</h2>
+                <div>
+                    <img width="66%" data-background-color="white" src="img/doov_ui_bootstrap.png">
+                </div>
+            </section>
+
+            <section data-transition="fade">
+                <h2>Web Form Rules</h2>
+                <div class="container-grid-2">
+                    <div>
+                        <img width="100%" data-background-color="white" src="img/doov_ui_crust_values.png">
+                    </div>
+                    <div class="flushleft center" style="font-size: 0.9em;">
+                        <p><strong>1</strong> Initial values, options</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="fade">
+                <h2>Web Form Rules</h2>
+                <div class="container-grid-2">
+                    <div>
+                        <img width="100%" data-background-color="white" src="img/doov_ui_select_location.png">
+                    </div>
+                    <div class="flushleft center" style="font-size: 0.9em;">
+                        <p><strong>1</strong> Initial values, options</p>
+                        <p><strong>2</strong> Update store with value change</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="fade">
+                <h2>Web Form Rules</h2>
+                <div class="container-grid-2">
+                    <div>
+                        <img width="100%" data-background-color="white" src="img/doov_ui_update_values.png">
+                    </div>
+                    <div class="flushleft center" style="font-size: 0.9em;">
+                        <p><strong>1</strong> Initial values, options</p>
+                        <p><strong>2</strong> Update store with value change</p>
+                        <p><strong>3</strong> Update field from store: value, options, visibility
+                    </div>
+                </div>
             </section>
 
             <section data-transition="fade-in slide-out">
-                <h2>LesFurets Web Form</h2>
-<!--                TODO-->
-                <p>TODO : Field interactions with the FieldContext (Store)</p>
-                <p>Initial values</p>
-                <p>Update field from store</p>
-                <p>Validate field value</p>
-                <p>Update store with value change</p>
+                <h2>Web Form Rules</h2>
+                <div class="container-grid-2">
+                    <div>
+                        <img width="100%" data-background-color="white" src="img/doov_ui_validation.png">
+                    </div>
+                    <div class="flushleft center" style="font-size: 0.9em;">
+                        <p><strong>1</strong> Initial values, options</p>
+                        <p><strong>2</strong> Update store with value change</p>
+                        <p><strong>3</strong> Update field from store: value, options, visibility
+                        <p><strong>4</strong> Validate field value</p>
+                    </div>
+                </div>
             </section>
 
-            <section data-transition="fade-in slide-out">
-                <h2>LesFurets Web Form</h2>
-<!--                TODO-->
-                <p>TODO : Show that this is the same as React-Redux/Context pattern</p>
-                <p>Initial values</p>
-                <p>Update field from store</p>
-                <p>Validate field value</p>
-                <p>Update store with value change</p>
+            <section>
+                <h2>Frontend Rules @ LesFurets</h2>
+                <p>More than <strong>3100 form interaction rules</strong>,</br> spanned over <strong>600 classes</strong></p>
+                </p>Implemented in Java over custom GWT framework</p>
             </section>
 
             <section data-transition="fade-in slide-out">
                 <h2>Meet doov-TS</h2>
+                <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="40%">
+                <p>dOOv in TypeScript</p>
+                <p>https://github.com/doov-io/doov-ts</p>
             </section>
+
         </section>
         <section>
             <section>
@@ -486,31 +530,63 @@ MappingRule rules = mappings(
             </section>
             <section>
                 <h2>Typescript</h2>
-                <p>Super set of JS syntax with ESNext features</p>
+                <p>Superset of JS syntax with ESNext features</p>
+                <!-- TODO -->
+                TODO examples
+                let & const,
+                arrow functions,
+                classes,
+                static methods,
+                access modifiers,
+                readonly,
+                promises,
+                module imports,
+                template literals,
+            </section>
+            <section>
+                <h2>Typescript</h2>
                 <p>Type system: Interface, Generics, Type Union & Intersection</p>
+                <!-- TODO -->
+                TODO example code
+            </section>
+                <section>
+                    <h2>Typescript</h2>
                 <p>Compiles to JS</p>
                 <div class="horizontal">
                     <div class="column">
+                        <p>
+                            <strong style="color:deepskyblue">TS</strong>
+                        </p>
                         <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
 const num: number = 123;
-function identity(num: number): number {
-    return num;
+
+interface WithStr {
+  num: number;
+  str: string;
+}
+
+function identity(num: number): WithStr {
+  return { num: num, str: String(num) };
 }
                     </code>
                   </pre>
                         </div>
                     </div>
-                    <div class="column">->
+                    <div class="column">
+                        <p>→</p>
                     </div>
                     <div class="column">
+                        <p class="in-model">
+                            <strong style="color:yellow">JS</strong>
+                        </p>
                         <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
 var num = 123;
 function identity(num) {
-    return num;
+    return { num: num, str: String(num) };
 }
                     </code>
                   </pre>
@@ -530,6 +606,8 @@ interface Animal {
                 </code>
               </pre>
                 </div>
+                <!-- TODO -->
+                TODO example code
             </section>
         </section>
 
