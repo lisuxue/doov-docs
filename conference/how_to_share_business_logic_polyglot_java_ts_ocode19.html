@@ -347,7 +347,7 @@ rules.executeOn(model, employee)</span>
                 </pre>
                 </div>
             </section>
-            <section>
+            <section data-transition="fade">
                 <h2>Use Case : Object-to-Object Mapping</h2>
                 <div class="horizontal">
                     <div class="column column-2">
@@ -381,7 +381,7 @@ rules.executeOn(model, employee)</code>
                     </div>
                 </div>
             </section>
-            <section>
+            <section data-transition="fade">
                 <h2>Use Case : Object-to-Object Mapping</h2>
                 <div class="horizontal">
                     <div class="column column-2">
@@ -433,7 +433,6 @@ MappingRule rules = mappings(
                 </code>
               </pre>
                 </div>
-                <p>We survived the <strong>GDPR</strong>!</p>
             </section>
 
         </section>
@@ -520,7 +519,7 @@ MappingRule rules = mappings(
                 <h2>Meet doov-TS</h2>
                 <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="40%">
                 <p>dOOv in TypeScript</p>
-                <p>https://github.com/doov-io/doov-ts</p>
+                <a href="https://github.com/doov-io/doov-ts">https://github.com/doov-io/doov-ts</a>
             </section>
 
         </section>
@@ -538,6 +537,7 @@ const name: string = 'Bob';
 let age: number = 26;
 i++;
 name = 'Alice';
+// TS2588: Cannot assign to 'name' because it is a constant.
                     </code>
                   </pre>
                 </div>
@@ -672,23 +672,31 @@ function attachStr(num) {
 
         <section>
             <h2>Migrating from GWT to React TypeScript</h2>
-            <p>Extract form field rules using dOOv Java and dOOv-TS</p>
+<!--            <p>Extract form field rules using dOOv Java and dOOv-TS</p>-->
+            <ul>
+                <li>Migrate GWT field rules from POJO to dOOv Java</li>
+                <li>Transpile dOOv Java to dOOv-TS</li>
+                <li>Inject field rules in dOOv-TS to React form framework</li>
+            </ul>
             <p></p>
         </section>
 
         <section>
           <h2>Enjoy dOOv.io</h2>
-          <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="33%">
+          <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="20%">
           <p>
             <a href="http://www.dOOv.io">http://www.dOOv.io</a>
           </p>
           <ul>
-            <li><a href="http://github.com/doov-io/doov">http://github.com/doov-io/doov</a> (framework and examples)</li>
-            <li><a href="https://repo1.maven.org/maven2/io/doov">https://repo1.maven.org/maven2/io/doov</a> (maven central: <strong>2.2.0</strong>)</li>
+            <li><a href="http://github.com/doov-io/doov">http://github.com/doov-io</a> dOOv & dOOv-TS (framework and examples)</li>
+            <li><a href="http://github.com/doov-io/doov-ts">http://github.com/doov-io/doov-ts</a> dOOv-TS</li>
+            <li><a href="https://codesandbox.io/s/github/ozangunalp/doov-ts-example">https://codesandbox.io/s/github/ozangunalp/doov-ts-example</a> dOOv-TS Example</li>
+            <li><a href="https://repo1.maven.org/maven2/io/doov">https://repo1.maven.org/maven2/io/doov</a></li>
+            <li><a href="https://www.npmjs.com/package/doov">https://www.npmjs.com/package/doov</a></li>
             <li><a href="http://github.com/doov-io/doov-docs">http://github.com/doov-io/doov-docs</a> (slides)</li>
             <li>Apache Licence</li>
-            <li>Try and contribute!</li>
           </ul>
+            <p>Try and contribute!</p>
         </section>
 
       </section>
