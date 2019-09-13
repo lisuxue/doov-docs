@@ -6,7 +6,7 @@ $('.prettyprint .code').each(function () {
   $(this).html($(this).html().trim());
 });
 
-const operators = ['or', 'and', 'after', 'before', 'eq', 'ageAt', 'greaterOrEquals', 'greaterThan', 'lesserOrEquals', 'lesserThan', 'startsWith', 'matches']
+const operators = ['or', 'readonly', 'type', 'and', 'after', 'before', 'eq', 'ageAt', 'greaterOrEquals', 'greaterThan', 'lesserOrEquals', 'lesserThan', 'startsWith', 'matches']
 
 const doov = function (args) {
   // Add operator CSS classes

@@ -528,26 +528,90 @@ MappingRule rules = mappings(
             <section>
                 <h2>Why Typescript?</h2>
             </section>
-            <section>
-                <h2>Typescript</h2>
-                <p>Superset of JS syntax with ESNext features</p>
-                <!-- TODO -->
-                TODO examples
-                let & const,
-                arrow functions,
-                classes,
-                static methods,
-                access modifiers,
-                readonly,
-                promises,
-                module imports,
-                template literals,
+            <section data-transition="fade">
+                <h2>Superset of JS syntax with ESNext features</h2>
+                <p>const & let</p>
+                <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+const name: string = 'Bob';
+let age: number = 26;
+i++;
+name = 'Alice';
+                    </code>
+                  </pre>
+                </div>
+            </section>
+            <section data-transition="fade">
+                <h2>Superset of JS syntax with ESNext features</h2>
+                <p>Arrow functions</p>
+                <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+const reverse = (v: string) => {
+  return v.split().reverse().join('');
+}
+                    </code>
+                  </pre>
+                </div>
+            </section>
+            <section data-transition="fade">
+                <h2>Superset of JS syntax with ESNext features</h2>
+                <p>Classes, static methods, access modifiers</p>
+                <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+class Square extends Rectangle {
+  readonly colour: string;
+
+  constructor(a: number, colour: string) {
+    super(a, a);
+    this.colour = colour;
+  }
+
+  public static area(r: Rectangle) {
+    return r.a * r.b;
+  }
+}</code>
+                  </pre>
+                </div>
+            </section>
+            <section data-transition="fade">
+                <h2>Superset of JS syntax with ESNext features</h2>
+                <p>Promises</p>
+                <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+import fs from 'fs';
+
+function readFileAsync(filename: string): Promise&lt;Buffer&gt; {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filename, (err, result) => {
+      err ? reject(err) : resolve(result);
+    });
+  });
+}</code>
+                  </pre>
+                </div>
             </section>
             <section>
-                <h2>Typescript</h2>
-                <p>Type system: Interface, Generics, Type Union & Intersection</p>
-                <!-- TODO -->
-                TODO example code
+                <h2>Optional strong type system</h2>
+                <p>Interface, Generics, Type Union & Intersection, Type Guards...</p>
+                <div class="code-wrapper small">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+interface Square { kind: "square"; size: number; }
+
+interface Rectangle { kind: "rectangle"; width: number; height: number; }
+
+type Shape = Square | Rectangle
+
+function area(s: Shape) {
+    return s.kind === "square" ? s.size * s.size : s.width * s.height;
+}
+                    </code>
+                  </pre>
+                </div>
             </section>
                 <section>
                     <h2>Typescript</h2>
@@ -567,7 +631,7 @@ interface WithStr {
   str: string;
 }
 
-function identity(num: number): WithStr {
+function attachStr(num: number): WithStr {
   return { num: num, str: String(num) };
 }
                     </code>
@@ -585,7 +649,7 @@ function identity(num: number): WithStr {
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
 var num = 123;
-function identity(num) {
+function attachStr(num) {
     return { num: num, str: String(num) };
 }
                     </code>
@@ -595,19 +659,10 @@ function identity(num) {
                 </div>
             </section>
             <section>
-                <h2>TypeScript syntax is very similar to Java</h2>
-                <p>(except for the right-hand side type annotations)</p>
-                <div class="code-wrapper">
-            <pre class="prettyprint">
-                <code class="code lang-javascript">
-interface Animal {
-  feet: number;
-}
-                </code>
-              </pre>
-                </div>
-                <!-- TODO -->
-                TODO example code
+                <h2>Why TypeScript?</h2>
+                <p>Types are necessary to scale a JS app</p>
+                <p>Hides away questions about ES language level and target environment into compiler configuration</p>
+                <p>TypeScript syntax is very similar to Java</br>(except for the right-hand side type annotations)</p>
             </section>
         </section>
 
@@ -616,8 +671,9 @@ interface Animal {
         </section>
 
         <section>
-          <h2>Migration from GWT to React TypeScript</h2>
-<!--            TODO-->
+            <h2>Migrating from GWT to React TypeScript</h2>
+            <p>Extract form field rules using dOOv Java and dOOv-TS</p>
+            <p></p>
         </section>
 
         <section>
