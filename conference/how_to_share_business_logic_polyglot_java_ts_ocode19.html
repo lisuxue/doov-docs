@@ -75,7 +75,7 @@
                 <p></p>
                 <ul class="">
                     <li>5 Insurance Products : Car, Health, Home, Bike, Loan</li>
-                    <li>Other Comparison Products : Energie, Credit, ISP, ...</li>
+                    <li>Other Comparison Products : Energy, Credit, ISP, ...</li>
                     <li class="emptyline">1 codebase, 500k lines of code, 60k unit tests, 150 selenium tests</li>
 
                     <li>25+ Developers, 2 DevOps, 3 Architects</li>
@@ -381,60 +381,6 @@ rules.executeOn(model, employee)</code>
                     </div>
                 </div>
             </section>
-            <section data-transition="fade">
-                <h2>Use Case : Object-to-Object Mapping</h2>
-                <div class="horizontal">
-                    <div class="column column-2">
-                        <div class="code-wrapper smaller">
-                  <pre class="prettyprint">
-                      <code class="code lang-java">Model model = ...;
-Employee employee = new Employee();
-// declarative mapping rule
-MappingRule rules = mappings(
-  when(<mark class="in-model">accountAcceptEmail</mark>.isTrue())
-      .then(map(<mark class="in-model">accountEmail</mark>).to(<mark class="out-model">employeeEmail</mark>)),
-
-  map(<mark class="in-model">userFirstName</mark>, <mark class="in-model">userLastName</mark>)
-      .using(biConverter(
-            (f, l) -> f + " " + l, "", "combine names"))
-      .to(<mark class="out-model">employeeFullname</mark>),
-
-  map(<mark class="in-model">userBirthdate</mark>.ageAt(today())).to(<mark class="out-model">employeeAge</mark>),
-
-  map(<mark class="in-model">accountCountry</mark>)
-      .using(converter(c -> c.name(), "country name"))
-      .to(<mark class="out-model">employeeCountry</mark>)
-);
-// then execute the mapping
-rules.executeOn(model, employee)</code>
-                </pre>
-                        </div>
-                    </div>
-                    <div class="column column-2" style="width: 800px; height: auto;">
-                        <img width="80%" src="img/mapping_html_it.png">
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2>Use Case : Object Manipulation</h2>
-                <div class="code-wrapper">
-            <pre class="prettyprint">
-                <code class="code lang-java">
-MappingRule rules = mappings(
-  when(<mark class="out-model">employeeAge</mark>.lesserThan(18))
-      .then(mapNull(<mark class="out-model">employeeFullname</mark>)),
-  map(<mark class="out-model">employeeEmail</mark>)
-      .using(converter(s -> sha256.hashString(s), "sha256 string"))
-      .to(<mark class="out-model">employeeEmail</mark>)
-)
-// then execute the mapping
-.executeOn(employee, employee)
-                </code>
-              </pre>
-                </div>
-            </section>
-
         </section>
 
         <section>
@@ -456,63 +402,45 @@ MappingRule rules = mappings(
             </section>
 
             <section data-transition="fade">
-                <h2>Web Form Rules</h2>
+                <h2>Initial values, options</h2>
                 <div class="container-grid-2">
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_crust_values.png">
                     </div>
-                    <div class="flushleft center" style="font-size: 0.9em;">
-                        <p><strong>1</strong> Initial values, options</p>
-                    </div>
                 </div>
             </section>
 
             <section data-transition="fade">
-                <h2>Web Form Rules</h2>
+                <h2>Update store with value change</h2>
                 <div class="container-grid-2">
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_select_location.png">
                     </div>
-                    <div class="flushleft center" style="font-size: 0.9em;">
-                        <p><strong>1</strong> Initial values, options</p>
-                        <p><strong>2</strong> Update store with value change</p>
-                    </div>
                 </div>
             </section>
 
             <section data-transition="fade">
-                <h2>Web Form Rules</h2>
+                <h2>Update field from store: value, options, visibility</h2>
                 <div class="container-grid-2">
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_update_values.png">
-                    </div>
-                    <div class="flushleft center" style="font-size: 0.9em;">
-                        <p><strong>1</strong> Initial values, options</p>
-                        <p><strong>2</strong> Update store with value change</p>
-                        <p><strong>3</strong> Update field from store: value, options, visibility
                     </div>
                 </div>
             </section>
 
             <section data-transition="fade-in slide-out">
-                <h2>Web Form Rules</h2>
+                <h2>Validate field value</h2>
                 <div class="container-grid-2">
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_validation.png">
-                    </div>
-                    <div class="flushleft center" style="font-size: 0.9em;">
-                        <p><strong>1</strong> Initial values, options</p>
-                        <p><strong>2</strong> Update store with value change</p>
-                        <p><strong>3</strong> Update field from store: value, options, visibility
-                        <p><strong>4</strong> Validate field value</p>
                     </div>
                 </div>
             </section>
 
             <section>
                 <h2>Frontend Rules @ LesFurets</h2>
-                <p>More than <strong>3100 form interaction rules</strong>,</br> spanned over <strong>600 classes</strong></p>
-                </p>Implemented in Java over custom GWT framework</p>
+                <p><strong>1000 fields</strong> with more than <strong>3100 form interaction rules</strong></br> spanned over <strong>600 classes</strong></p>
+                </p>No <strong>governance</strong> or <strong>auditability</strong></p>
             </section>
 
             <section data-transition="fade-in slide-out">
@@ -671,14 +599,13 @@ function attachStr(num) {
         </section>
 
         <section>
-            <h2>Migrating from GWT to React TypeScript</h2>
-<!--            <p>Extract form field rules using dOOv Java and dOOv-TS</p>-->
+            <h2>Migrating business rules to dOOv</h2>
             <ul>
-                <li>Migrate GWT field rules from POJO to dOOv Java</li>
-                <li>Transpile dOOv Java to dOOv-TS</li>
-                <li>Inject field rules in dOOv-TS to React form framework</li>
+                <li><strong style="color:limegreen;">Business rules are easier to code, grasp and govern</strong></li>
+                <li><strong style="color:orangered;">Debugging is not obvious</strong></li>
+                <li><strong style="color:orangered;">Code coverage is misleading</strong></li>
+                <li><strong style="color:limegreen;">Easier to setup generative testing</strong></li>
             </ul>
-            <p></p>
         </section>
 
         <section>
