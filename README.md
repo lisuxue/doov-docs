@@ -13,6 +13,9 @@
 
 ## Conferences
 
+### How to Share Business Logic in a Polyglot App Mixing Java and TypeScript 
+- [How to Share Business Logic in a Polyglot App Mixing Java and TypeScript](https://doov.io/conference/how_to_share_business_logic_polyglot_java_ts_ocode19.html)
+
 ### DSL.using(java).toGoBeyond(BeanValidation)
 
 - [DSL.toGoBeyond(BeanValidation).at(BBL.ippon)](https://doov.io/conference/dsl_to_go_beyond_bean_validation_bbl_ippon.html)
