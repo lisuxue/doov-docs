@@ -193,7 +193,7 @@ public ExclusionRule exclusionRule() {
                     <strong>O</strong>riented
                     <strong>V</strong>alidation</p>
                 <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="40%">
-                <p>dOOv is a fluent API for typesafe domain model validation</p>
+                <p><strong>a fluent API for typesafe domain model validation</strong></p>
             </section>
         </section>
         <section>
@@ -202,10 +202,8 @@ public ExclusionRule exclusionRule() {
                     <strong>dOOv</strong> : Under the hood</p>
                 <div class="code-wrapper">
             <pre class="prettyprint">
-                <code class="code lang-java">
-DOOV.when(accountCompany.eq(Company.LES_FURETS)
-            .and(accountPhoneNumber.startsWith("+33"))).validate();
-                </code>
+                <code class="code lang-java">DOOV.when(accountCompany.eq(Company.LES_FURETS)
+            .and(accountPhoneNumber.startsWith("+33"))).validate();</code>
               </pre>
                 </div>
                 <br/>
@@ -216,16 +214,14 @@ DOOV.when(accountCompany.eq(Company.LES_FURETS)
             </section>
             <section>
                 <h2>Export to text, markdown,...</h2>
-                <div class="code-wrapper">
+                <div class="code-wrapper small">
             <pre class="prettyprint">
-                <code class="code lang-java">
-DOOV.when(accountCompany.eq(Company.LES_FURETS)
-            .and(accountPhoneNumber.startsWith("+33"))).validate();
-                </code>
+                <code class="code lang-java">DOOV.when(accountCompany.eq(Company.LES_FURETS)
+            .and(accountPhoneNumber.startsWith("+33"))).validate();</code>
               </pre>
                 </div>
                 <p><strong>Markdown</strong></p>
-                <div class="code-wrapper">
+                <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-xml output">
 * rule
@@ -237,7 +233,7 @@ DOOV.when(accountCompany.eq(Company.LES_FURETS)
               </pre>
                 </div>
                 <p><strong>Text</strong></p>
-                <div class="code-wrapper">
+                <div class="code-wrapper small">
             <pre class="prettyprint">
                 <code class="code lang-xml output">
 rule when (account company = LES_FURETS and account phone number starts with '+33') validate
@@ -407,6 +403,16 @@ rules.executeOn(model, employee)</code>
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_crust_values.png">
                     </div>
+                    <div class="small v-centered">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+map(['Napolitan', 'New York',
+     'StLouis', 'Pan',
+     'DeepDish', 'Sicilian'])
+  .to(crustOptions);
+                    </code>
+                  </pre>
+                    </div>
                 </div>
             </section>
 
@@ -415,6 +421,19 @@ rules.executeOn(model, employee)</code>
                 <div class="container-grid-2">
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_select_location.png">
+                    </div>
+                    <div class="small v-centered">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+map(fieldValue).to(city),
+
+when(city.eq('napoli'))
+.then(
+  map(['Napolitan'])
+    .to(crustOptions)
+)
+                    </code>
+                  </pre>
                     </div>
                 </div>
             </section>
@@ -425,6 +444,18 @@ rules.executeOn(model, employee)</code>
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_update_values.png">
                     </div>
+                    <div class="small v-centered">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+when(city.eq('napoli'))
+.then(
+  map('L').to(size)
+)
+
+map(size).to(fieldValue)
+                    </code>
+                  </pre>
+                    </div>
                 </div>
             </section>
 
@@ -433,6 +464,17 @@ rules.executeOn(model, employee)</code>
                 <div class="container-grid-2">
                     <div>
                         <img width="100%" data-background-color="white" src="img/doov_ui_validation.png">
+                    </div>
+                    <div class="small v-centered">
+                <pre class="prettyprint">
+                    <code class="code lang-javascript">
+when(
+  matchAll(
+    city.eq('napoli'),
+    crust.notEq('Pan')
+  )).validate()
+                    </code>
+                  </pre>
                     </div>
                 </div>
             </section>
@@ -446,18 +488,18 @@ rules.executeOn(model, employee)</code>
             <section data-transition="fade-in slide-out">
                 <h2>Meet doov-TS</h2>
                 <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="40%">
-                <p>dOOv in TypeScript</p>
+                <p><strong>dOOv in TypeScript</strong></p>
                 <a href="https://github.com/doov-io/doov-ts">https://github.com/doov-io/doov-ts</a>
             </section>
 
         </section>
         <section>
             <section>
-                <h2>Why Typescript?</h2>
+                <h2>Why TypeScript?</h2>
             </section>
             <section data-transition="fade">
                 <h2>Superset of JS syntax with ESNext features</h2>
-                <p>const & let</p>
+                <p><strong>const & let</strong></p>
                 <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
@@ -472,7 +514,7 @@ name = 'Alice';
             </section>
             <section data-transition="fade">
                 <h2>Superset of JS syntax with ESNext features</h2>
-                <p>Arrow functions</p>
+                <p><strong>Arrow functions</strong></p>
                 <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
@@ -485,7 +527,7 @@ const reverse = (v: string) => {
             </section>
             <section data-transition="fade">
                 <h2>Superset of JS syntax with ESNext features</h2>
-                <p>Classes, static methods, access modifiers</p>
+                <p><strong>Classes, static methods, access modifiers</strong></p>
                 <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
@@ -506,7 +548,7 @@ class Square extends Rectangle {
             </section>
             <section data-transition="fade">
                 <h2>Superset of JS syntax with ESNext features</h2>
-                <p>Promises</p>
+                <p><strong>Promises</strong></p>
                 <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
@@ -524,7 +566,7 @@ function readFileAsync(filename: string): Promise&lt;Buffer&gt; {
             </section>
             <section>
                 <h2>Optional strong type system</h2>
-                <p>Interface, Generics, Type Union & Intersection, Type Guards...</p>
+                <p><strong>Interface, Generics, Type Union & Intersection, Type Guards...</strong></p>
                 <div class="code-wrapper small">
                 <pre class="prettyprint">
                     <code class="code lang-javascript">
@@ -542,8 +584,7 @@ function area(s: Shape) {
                 </div>
             </section>
                 <section>
-                    <h2>Typescript</h2>
-                <p>Compiles to JS</p>
+                    <h2>Compiles to JS</h2>
                 <div class="horizontal">
                     <div class="column">
                         <p>
@@ -588,9 +629,9 @@ function attachStr(num) {
             </section>
             <section>
                 <h2>Why TypeScript?</h2>
-                <p>Types are necessary to scale a JS app</p>
-                <p>Hides away questions about ES language level and target environment into compiler configuration</p>
-                <p>TypeScript syntax is very similar to Java</br>(except for the right-hand side type annotations)</p>
+                <p><strong>Types are necessary to scale a JS app</strong></p>
+                <p><strong>Hides away questions about ES language level and target environment into compiler configuration</strong></p>
+                <p><strong>TypeScript syntax is very similar to Java</br>(except for the right-hand side type annotations)</strong></p>
             </section>
         </section>
 
@@ -600,30 +641,21 @@ function attachStr(num) {
 
         <section>
             <h2>Migrating business rules to dOOv</h2>
-            <ul>
-                <li><strong style="color:limegreen;">Business rules are easier to code, grasp and govern</strong></li>
-                <li><strong style="color:orangered;">Debugging is not obvious</strong></li>
-                <li><strong style="color:orangered;">Code coverage is misleading</strong></li>
-                <li><strong style="color:limegreen;">Easier to setup generative testing</strong></li>
-            </ul>
+                <p><strong>Business rules are easier to code, grasp and govern</strong>
+                </p>
+                <p><strong>Debugging is not obvious</strong>
+                </br><strong>Code coverage is misleading</strong></p>
         </section>
 
         <section>
           <h2>Enjoy dOOv.io</h2>
           <img class="logo herve-francois" src="img/doov_io_logo_dark_large.png" width="20%">
-          <p>
-            <a href="http://www.dOOv.io">http://www.dOOv.io</a>
-          </p>
-          <ul>
-            <li><a href="http://github.com/doov-io/doov">http://github.com/doov-io</a> dOOv & dOOv-TS (framework and examples)</li>
-            <li><a href="http://github.com/doov-io/doov-ts">http://github.com/doov-io/doov-ts</a> dOOv-TS</li>
-            <li><a href="https://codesandbox.io/s/github/ozangunalp/doov-ts-example">https://codesandbox.io/s/github/ozangunalp/doov-ts-example</a> dOOv-TS Example</li>
-            <li><a href="https://repo1.maven.org/maven2/io/doov">https://repo1.maven.org/maven2/io/doov</a></li>
-            <li><a href="https://www.npmjs.com/package/doov">https://www.npmjs.com/package/doov</a></li>
-            <li><a href="http://github.com/doov-io/doov-docs">http://github.com/doov-io/doov-docs</a> (slides)</li>
-            <li>Apache Licence</li>
-          </ul>
-            <p>Try and contribute!</p>
+            <p style="padding: 10px"><a href="http://www.dOOv.io">http://www.dOOv.io</a></p>
+            <p style="padding: 10px"><strong>dOOv & dOOv-TS (framework and examples)</strong></br><a href="http://github.com/doov-io/doov">http://github.com/doov-io</a></p>
+            <p style="padding: 10px"><strong>dOOv-TS Example</strong></br><a href="https://codesandbox.io/s/github/ozangunalp/doov-ts-example">https://codesandbox.io/s/github/ozangunalp/doov-ts-example</a></p>
+            <p style="padding: 10px"><strong>Slides</strong></br><a href="http://github.com/doov-io/doov-docs">http://github.com/doov-io/doov-docs</a></p>
+            <p style="padding: 10px">Open Source & Apache Licence</p>
+            <p style="padding: 10px">Try and contribute!</p>
         </section>
 
       </section>

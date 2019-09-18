@@ -429,6 +429,20 @@ body {
     font-size: 0.55em;
 }
 
+.reveal .small {
+  font-size: 0.7em;
+}
+
+.reveal .smaller {
+  font-size: 0.55em;
+}
+
+.reveal .v-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .reveal code.code {
     display: inline-block;
     font-family: monospace;
