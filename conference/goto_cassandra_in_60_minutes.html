@@ -148,6 +148,46 @@
       </section>
 
       <section>
+          <section>
+              <h1>Cassandra in a Nutshell</h1>
+              <ul>
+                <li>Created at Facebook ...</li>
+                <li>... and now used at Netflix and Apple !</li>
+                <li>A mix of the data model of Google BigTable</li>
+                <li>... and the distributing model of Amazon Dynamo DB</li>
+                <li>hard schema constraints...</li>
+                <li>... and tunable consistency</li>
+              </ul>
+          </section>
+          <section>
+              <h1>Cassandra distribution</h1>
+              <h2>Line Structure</h2>
+              <img class="cassandra-keys" src="img/cassandra-keys.svg">
+          </section>
+          <section>
+              <h1>Cassandra distribution</h1>
+              <h2>Consistent Hashing of the Partition Key<h2>
+              <img class="cassandra-consistent-hashing" src="img/cassandra-consistent-hashing.svg">
+          </section>
+          <section>
+              <h1>Cassandra distribution<h1>
+              <h2>Query Path</h2>
+              <img class="cassandra-query-path" src="img/cassandra-query-path.svg">
+          </section>
+          <section>
+              <h1>Cassandra distribution</h1>
+              <h2>Tunable consistency</h2>
+              <ul>
+                  <li>Partition - Availabity - Consistency are not possible at the same time (CAP Theorem)</li>
+                  <li>To achieve a compromise which emphasize consistency :</li>
+                  <li>RF &gt; W + R</li>
+              </ul>
+          </section>
+      </section>
+      
+
+
+      <section>
         <section>
           <h1>Moving the architecture</h1>
         </section>
