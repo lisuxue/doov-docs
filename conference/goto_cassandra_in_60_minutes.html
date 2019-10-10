@@ -152,7 +152,7 @@
               <h1>Cassandra in a Nutshell</h1>
               <ul>
                 <li>Created at Facebook ...</li>
-                <li>... and now used at Netflix and Apple !</li>
+                <li>... and now used at Netflix, Apple and Instagram !</li>
                 <li>A mix of the data model of Google BigTable</li>
                 <li>... and the distributing model of Amazon Dynamo DB</li>
                 <li>hard schema constraints...</li>
@@ -162,7 +162,7 @@
           <section>
               <h1>Cassandra distribution</h1>
               <h2>Line Structure</h2>
-              <img class="cassandra-keys" src="img/cassandra-keys.svg">
+              <img class="cassandra-keys" width="90%" src="img/cassandra-keys.svg">
           </section>
           <section>
               <h1>Cassandra distribution</h1>
@@ -176,11 +176,15 @@
           </section>
           <section>
               <h1>Cassandra distribution</h1>
-              <h2>Tunable consistency</h2>
+              <h2>Tunable consistency (1/2)</h2>
+              <img class="cassandra-consistency-illustrated" width="90%" src="img/cassandra-consistency-illustrated.svg">
+          </section>
+          <section>
+              <h1>Cassandra distribution</h1>
+              <h2>Tunable consistency (2/2)</h2>
               <ul>
-                  <li>Partition - Availabity - Consistency are not possible at the same time (CAP Theorem)</li>
-                  <li>To achieve a compromise which emphasize consistency :</li>
-                  <li>RF &lt; W + R</li>
+                  <li><strong>RF &lt; W + R</strong></li>
+                  <li><a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP Theorem</a></li>
               </ul>
           </section>
       </section>
@@ -204,10 +208,6 @@
       <section>
         <section>
           <h1>Moving the infrastrucure</h1>
-        </section>
-        <section>
-          <h2>Hosting at OVH</h2>
-          <img class="fragment" width="90%" src="img/lf_com_data_ovh.png">
         </section>
         <section>
           <h2>Cassandra cluster current setup</h2>
