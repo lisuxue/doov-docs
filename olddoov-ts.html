@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://localhost:3000/doov-ts -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta charset="utf-8">
+    <title>dOOv, a fluent API for typesafe domain model validation</title>
+    <meta name="description" content="dOOv, a fluent API for typesafe domain model validation">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <style type="text/css">* {
+    padding: 0;
+    margin: 0;
+}
+
+html,body {
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    /*font-size: 3vw;*/
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    background-color: #34495e;
+    /*background-image: linear-gradient(#3b759e, #34495e);*/
+
+    /*background-image: linear-gradient(#3b759e, #34495e);*/
+    /*background-image: -webkit-linear-gradient(#003647, #006576);*/
+    text-align: -webkit-center;
+    /*font-family: Consolas, Monaco, monospace;*/
+}
+
+.content {
+    max-height: 100%;
+    overflow: auto;
+    width: 100%;
+}
+.logo {
+    display: block;
+    /*margin: 1vw auto;*/
+    margin-right: auto;
+    margin-left: auto;
+    padding : 1vw 0 0.5vw 0;
+    width: 10vw;
+}
+
+
+.slogan {
+    text-align: center;
+    font-size: 3vw;
+    color: white;
+}
+
+.top-bar {
+    /*background-color: #3b759e;*/
+    /*background-color: #34495e;*/
+    background-image: linear-gradient(#3b759e, #34495e);
+    color: white;
+    /*font-family: monospace;*/
+    padding-bottom: 10px;
+    /*height: 10%;*/
+}
+
+.container {
+    width: 70%;
+    background-color: white;
+    /*min-height: 100%;*/
+    margin-bottom: 4%;
+}
+
+
+
+/*.section {*/
+/*    !*text-align: center;*!*/
+/*    width: 90%;*/
+/*    background-color: white;*/
+/*    color: #333333;*/
+/*    padding-top: 25px;*/
+/*    padding-bottom: 20px;*/
+/*    text-align: left;*/
+/*}*/
+
+.section-name {
+    font-size: 2vw;
+    font-weight: normal;
+    padding-bottom: 5px;
+    border-bottom: dotted;
+    border-bottom-color: cadetblue;
+}
+
+.section-desc {
+    font-size: 20px;
+    font-weight: 200;
+    text-align: left;
+    padding-top: 5px;
+}
+
+
+
+
+.description-small {
+    text-align: center;
+    margin: auto;
+    font-size: 1.5vw;
+}
+.code {
+    margin: 1vw auto;
+    /*width: 80%;*/
+}
+
+.bash {
+    color: white;
+    font-family: monospace;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: #333333;
+    border-radius: 5px;
+    margin: 10px;
+    /*background-color: #333333;*/
+}
+
+.java {
+    padding: 20px;
+    background-color: #333333;
+    font-family: monospace;
+    font-size: 2vw;
+    text-align: left;
+}
+.github {
+    margin: 4vw;
+}
+a.button {
+    background-color: #333;
+    padding: 2vw 3vw;
+    color: white;
+    font-family: monospace;
+    text-decoration: none;
+}
+.bottom-padding {
+    height: 100px;
+}
+.bottombar {
+    /*background-color: #34495e;*/
+    /*z-index: 99;*/
+    background-color: #34495e;
+    /*background-image: linear-gradient(#3b759e, #34495e);*/
+    bottom: 0;
+    position: fixed;
+    vertical-align: middle;
+    width: 100%;
+    padding: 1vw 1vw 0 1vw;
+    min-height: 5%;
+}
+.lesfuretslogo {
+    width: 16vw;
+}
+.softshakelogo {
+    width: 16vw;
+}
+.snowcamplogo {
+    width: 16vw;
+}
+.jdkiologo {
+    width: 11vw;
+    background-color: #eeeeee;
+    padding: 0.2rem
+}
+.openrdaylogo {
+    width: 13vw;
+    padding: 0.2rem
+}
+.ocodelogo {
+    width: 3.4vw;
+}
+.ocodeonelogo {
+    width: 7vw;
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 2vw;
+    }
+    .java {
+        font-size: 1.5vw;
+    }
+    .code {
+        width: 66%;
+    }
+}</style><style type="text/css">a:-webkit-any-link {
+    text-decoration: none;
+}</style><style type="text/css">pre {
+    border: 1px solid rgba(34,34,34,0.2);
+    border-radius: 4px;
+    color: #222;
+    font-size: 14px;
+    padding: 5px 8px;
+    margin: 0 0 20px;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: auto;
+    line-height: 24px;
+    background: rgba(34,34,34,0.03);
+    font-weight: 100;
+    width: auto;
+    text-align: left
+}
+
+h5 {
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+h6 {
+    font-weight: normal;
+}
+
+.section {
+    text-align: left;
+    margin: 0 1.5vw 0 1.5vw;
+    /*text-align: center;*/
+    width: 90%;
+    background-color: white;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.section-name {
+    font-size: 1em;
+    padding: 1vw;
+    margin: 1vw 1vw 2vw 1vw;
+    border-bottom: dotted;
+    border-color: slategray;
+    /*border-bottom-width: normal;*/
+    color: slategray;
+    font-family: monospace
+}
+
+.desc {
+    font-size: medium;
+}
+
+.finger {
+    color: #3b759e;
+}
+</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="top-bar"><div class="logo"><a href="https://github.com/doov-io/doov"><img class="logo" alt="dOOv on GitHub" src="conference/img/doov_io_logo_dark_large.png"></a></div><div class="description"></div></div><div class="container"><div class="section-name">doov-ts</div><div class="section"><h5> Install </h5><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code><span style="color: rgb(142, 144, 140);"># using npm</span>
+npm install doov
+<span style="color: rgb(142, 144, 140);"># using yarn</span>
+yarn add doov</code></pre></div><div class="section"><h5> Getting Started </h5><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span></code><code><span style="color: rgb(137, 89, 168);">import</span> * <span style="color: rgb(137, 89, 168);">as</span> DOOV <span style="color: rgb(137, 89, 168);">from</span> <span style="color: rgb(113, 140, 0);">'doov'</span>;</code></pre><h6> Example Model </h6><span class="desc">Here is instanciation of an example model we use for demonstration, you can create your own model, inherited of Object class</span><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span></code><code><span style="color: rgb(142, 144, 140);">/* instance of example Model */</span>
+<span style="color: rgb(137, 89, 168);">let</span> model = <span style="color: rgb(137, 89, 168);">new</span> Model();
+<span style="color: rgb(137, 89, 168);">let</span> user = <span style="color: rgb(137, 89, 168);">new</span> User(<span style="color: rgb(245, 135, 31);">1</span>);
+user.name = <span style="color: rgb(113, 140, 0);">'test'</span>;
+user.b = <span style="color: rgb(245, 135, 31);">true</span>;
+model.user = user;</code></pre><h6> Example Rules </h6><span class="desc"> 1. First, build the path to access the place you want in your model</span><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span></code><code><span style="color: rgb(137, 89, 168);">const</span> USER_B: BooleanFunction = DOOV.boolean(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">boolean</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'b'</span>));
+<span style="color: rgb(137, 89, 168);">const</span> USER_ID: NumberFunction = DOOV.number(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">number</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'id'</span>));
+<span style="color: rgb(137, 89, 168);">const</span> USER_NAME: StringFunction = DOOV.string(Field.field&lt;<span style="color: rgb(245, 135, 31);">string</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'name'</span>));
+
+<span style="color: rgb(142, 144, 140);">/* 'links' is an optional field for the model we use */</span>
+<span style="color: rgb(137, 89, 168);">const</span> USER_LINK0 = DOOV.string(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>, <span style="color: rgb(245, 135, 31);">0</span>)); <span style="color: rgb(142, 144, 140);">//access to the first element of iterable</span>
+<span style="color: rgb(137, 89, 168);">const</span> USER_LINK1 = DOOV.string(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>, <span style="color: rgb(245, 135, 31);">1</span>)); <span style="color: rgb(142, 144, 140);">//access to the second element of iterable</span>
+<span style="color: rgb(137, 89, 168);">const</span> USER_LINKS = DOOV.iterable&lt;<span style="color: rgb(245, 135, 31);">string</span>&gt;(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>[], Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>))); <span style="color: rgb(142, 144, 140);">//direct access to iterable</span></code></pre><span class="desc"> 2. Second, you can build any rules with fluent API, much more natural, to check you model</span><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span><span class="react-syntax-highlighter-line-number">9
+</span></code><code><span style="color: rgb(142, 144, 140);">/* Multiple validations rule */</span>
+<span style="color: rgb(137, 89, 168);">const</span> multipleValidationsRule: ValidationRule = DOOV.validations(
+      DOOV.when(USER_B.and(USER_ID.greaterOrEquals(<span style="color: rgb(245, 135, 31);">2</span>))).validate(),
+      DOOV.when(USER_B.and(USER_NAME.endsWith(<span style="color: rgb(113, 140, 0);">'st'</span>))).validate())
+
+<span style="color: rgb(142, 144, 140);">/* Multiple mappings Rule */</span>
+<span style="color: rgb(137, 89, 168);">const</span> multipleMappingRule: MappingRule = 
+      DOOV.map(USER_ID.mapTo(StringFunction, <span class="hljs-function"><span style="color: rgb(245, 135, 31);">v</span> =&gt;</span> <span style="color: rgb(113, 140, 0);">'link of '</span> + v)).to(USER_LINK1),
+      DOOV.map(USER_NAME).to(USER_LINK2))</code></pre><span class="desc"> 3. Then, those rules can be executed on the model instanciated at the beginning</span><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span><span class="react-syntax-highlighter-line-number">9
+</span></code><code><span style="color: rgb(142, 144, 140);">/* execution of ValidationRule return a Result */</span>
+<span style="color: rgb(137, 89, 168);">const</span> result: Result = multipleValidationRule.execute(model);
+<span style="color: rgb(245, 135, 31);">console</span>.log(result.value) 
+<span style="color: rgb(142, 144, 140);">// out: "true", because one of the validation rule is true </span>
+
+<span style="color: rgb(142, 144, 140);">/* execution of MappingRule return a new instance Model which contains mapped values given the mapping rule */</span>
+<span style="color: rgb(137, 89, 168);">const</span> resultModel: Model = multipleMappingRule.execute(model);
+<span style="color: rgb(245, 135, 31);">console</span>.log(links.get(resultModel))
+ <span style="color: rgb(142, 144, 140);">// out: "['link of 1','test']"</span></code></pre></div><div class="section"><h5>Try it yourself !</h5><span class="desc">You can try doov-ts on CodeSandBox, with a concret business case : Pizza composer</span></div><div class="section"><h5>Read business rule</h5><span class="desc">Rules produced with doov-ts are readable in plain texte as below</span><pre style="display: block; overflow-x: auto; background: rgba(34, 34, 34, 0.03); color: rgb(77, 77, 76); padding: 0.5em;"><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span></code><code><span style="color: rgb(245, 135, 31);">console</span>.log(multipleMappingRule.metadata.readable);
+<span style="color: rgb(142, 144, 140);">// out: "user.id function function (v) { return 'link of ' + v; } -&gt; user.links.0 , user.name -&gt; user.links.1"</span></code></pre>
+<span class="desc">But we offer a renderer to get doov-ts rules to html for a easier understanding, for more details<span class="finger">&nbsp;&nbsp;☛&nbsp;</span><a href="oldindex.html">doov-ts-react</a></span></div></div>
+<div class="bottombar">
+      <a href="https://www.lesfurets.com"><img class="lesfuretslogo" alt="dOOv is an open source project from LesFurets.com" src="conference/img/logo_lesfurets_blanc.png"></a>
+      <a href="conference/dsl_to_go_beyond_bean_validation_softshake.html"><img class="softshakelogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo_softshake_2017.png"></a>
+      <a href="conference/dsl_to_go_beyond_bean_validation_snowcamp.html"><img class="snowcamplogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/snowcamp/logo-transparent-small.png"></a>
+      <a href="conference/dsl_to_go_beyond_bean_validation_jdk_io.html"><img class="jdkiologo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo_jdk_io.png"></a>
+      <a href="conference/dsl_to_go_beyond_bean_validation_openrday.html"><img class="openrdaylogo" alt="DSL.toGoBeyond(BeanValidation)" src="conference/img/logo-openrday.svg"></a>
+      <a href="conference/how_to_share_business_logic_polyglot_java_ts_ocode19.html"><img class="ocodeonelogo" alt="How to Share the Business Logic in a Polyglot App Mixing Java and TypeScript - Code One 2019 [BOF3570]" src="conference/img/oco19-logo_ping.png"></a>
+      <a href="conference/how_to_create_dsl_with_lambda_builders_nantes_jug.html"><img class="ocodeonelogo" alt="How to Create a DSL with Lambda Builders - Nantes Java Usre Group" src="conference/img/logo_nantes_jug.png"></a>
+    </div>
+</div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+</body></html>

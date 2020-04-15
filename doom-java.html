@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:3000/doom-java -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta charset="utf-8" />
+    <title>
+      dOOm domain object oriented mappings
+    </title>
+    <meta name="description" content="dOOm domain object oriented mappings" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        /*font-size: 3vw;*/
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        background-color: #34495e;
+        /*background-image: linear-gradient(#3b759e, #34495e);*/
+
+        /*background-image: linear-gradient(#3b759e, #34495e);*/
+        /*background-image: -webkit-linear-gradient(#003647, #006576);*/
+        text-align: -webkit-center;
+        /*font-family: Consolas, Monaco, monospace;*/
+      }
+      a:-webkit-any-link {
+        text-decoration: none;
+      }
+
+      .content {
+        max-height: 100%;
+        overflow: auto;
+        width: 100%;
+      }
+      .logo {
+        display: block;
+        /*margin: 1vw auto;*/
+        margin-right: auto;
+        margin-left: auto;
+        padding: 1vw 0 0.5vw 0;
+        width: 10vw;
+      }
+
+      .slogan {
+        text-align: center;
+        font-size: 3vw;
+        color: white;
+      }
+
+      .top-bar {
+        /*background-color: #3b759e;*/
+        /*background-color: #34495e;*/
+        background-image: linear-gradient(#3b759e, #34495e);
+        color: white;
+        /*font-family: monospace;*/
+        padding-bottom: 10px;
+        /*height: 10%;*/
+      }
+
+      .container {
+        width: 70%;
+        background-color: white;
+        /*min-height: 100%;*/
+        margin-bottom: 4%;
+      }
+
+      h4 {
+        margin-bottom: 1vh;
+        font-weight: normal;
+        font-family: monospace;
+      }
+      h5 {
+        font-weight: normal;
+        margin-bottom: 1vh;
+        line-height: normal;
+        font-family: monospace;
+      }
+
+      pre {
+        border: 1px solid rgba(34, 34, 34, 0.2);
+        border-radius: 4px;
+        color: #222;
+        font-size: 1.1vw;
+        padding: 5px 8px;
+        margin: 0 0 1.5vw;
+        white-space: pre;
+        word-wrap: normal;
+        overflow-x: auto;
+        line-height: 2vw;
+        background: rgba(34, 34, 34, 0.03);
+        font-weight: 100;
+        width: auto;
+        text-align: left;
+      }
+
+      .subsection {
+        text-align: left;
+        margin: 0 1.5vw 0 1.5vw;
+        /*text-align: center;*/
+        width: 90%;
+        background-color: white;
+        padding-bottom: 1vw;
+        text-align: left;
+        line-height: 1.5vw;
+      }
+
+      .section-name {
+        font-size: 1em;
+        padding: 1vw;
+        margin: 1vw 1vw 2vw 1vw;
+        border-bottom: dotted;
+        border-color: slategray;
+        /*border-bottom-width: normal;*/
+        color: slategray;
+        font-family: monospace;
+      }
+
+      .desc {
+        font-size: 1.4vw;
+        margin: 1.5vh 0 1.5vh;
+      }
+
+      .section-name {
+        font-size: 2vw;
+        font-weight: normal;
+        padding-bottom: 5px;
+        border-bottom: dotted;
+        border-bottom-color: cadetblue;
+      }
+
+      .finger {
+        color: #3b759e;
+      }
+
+      .gitbutton {
+        background-color: #333;
+        padding: 0 2vw 0;
+        color: white;
+        font-family: monospace;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 2vw;
+      }
+
+      .github {
+        text-align: center;
+        margin-bottom: 5vh;
+        margin-top: 2vh;
+        padding-bottom: 3vh;
+        /*margin-bottom: 5vh;*/
+      }
+
+      .bottom-padding {
+        height: 100px;
+      }
+
+      .bottombar {
+        /*background-color: #34495e;*/
+        /*z-index: 99;*/
+        background-color: #34495e;
+        /*background-image: linear-gradient(#3b759e, #34495e);*/
+        bottom: 0;
+        position: fixed;
+        vertical-align: middle;
+        width: 100%;
+        padding: 1vw 1vw 0 1vw;
+        min-height: 5%;
+      }
+      .lesfuretslogo {
+        width: 16vw;
+      }
+      .softshakelogo {
+        width: 16vw;
+      }
+      .snowcamplogo {
+        width: 16vw;
+      }
+      .jdkiologo {
+        width: 11vw;
+        background-color: #eeeeee;
+        padding: 0.2rem;
+      }
+      .openrdaylogo {
+        width: 13vw;
+        padding: 0.2rem;
+      }
+      .ocodelogo {
+        width: 3.4vw;
+      }
+      .ocodeonelogo {
+        width: 7vw;
+      }
+
+      @media screen and (min-width: 1200px) {
+        body {
+          font-size: 2vw;
+        }
+        .java {
+          font-size: 1.5vw;
+        }
+        .code {
+          width: 66%;
+        }
+        /*.pre {*/
+        /*    line-height: 3vw;*/
+        /*}*/
+      }
+    </style>
+    <style type="text/css">
+      ul {
+        display: block;
+        list-style-type: disc;
+        /*margin-block-start: 1em;*/
+        /*margin-block-end: 1em;*/
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 2vw;
+      }
+
+      .emph {
+        font-weight: bolder;
+      }
+
+      .rendering {
+        margin-bottom: 1.5vw;
+        border: lightgray;
+        border-style: solid;
+        border-width: thin;
+        border-left-width: thick;
+        border-radius: 4px;
+        padding: 1vh 0 1vh 1vw;
+        background-color: rgba(34, 34, 34, 0.03);
+      }
+
+      .doov-react {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1vw;
+        box-sizing: border-box;
+        line-height: 1.5;
+      }
+
+      .token-class-class {
+        color: #983e77;
+      }
+
+      .token-class-name {
+        color: black;
+      }
+
+      .dsl-validation-rule {
+        color: black;
+      }
+
+      .dsl-validation-rule li {
+        display: list-item;
+      }
+
+      .dsl-validation-rule ul {
+        margin-bottom: 3px;
+        margin-top: 0;
+      }
+
+      .dsl-token-single-mapping ul {
+        margin-bottom: 3px;
+        margin-top: 0;
+      }
+
+      .dsl-token-multiple-mapping ul {
+        margin-bottom: 3px;
+        margin-top: 0;
+      }
+
+      .dsl-token-rule {
+        color: #983e77;
+      }
+
+      .dsl-token-when {
+        color: #983e77;
+      }
+
+      .dsl-token-validate {
+        color: #983e77;
+      }
+
+      .dsl-token-then {
+        color: #983e77;
+      }
+
+      .dsl-token-else {
+        color: #983e77;
+      }
+
+      .dsl-token-nary {
+        color: black;
+        font-weight: bold;
+      }
+
+      .dsl-token-unary {
+        font-weight: bold;
+      }
+
+      .dsl-token-binary {
+        color: black;
+        font-weight: bold;
+      }
+
+      .dsl-token-field {
+        color: #683e40;
+      }
+
+      .dsl-token-template-param {
+        color: #3f7f5f;
+      }
+
+      .dsl-token-operator {
+        color: black;
+        font-weight: bold;
+      }
+
+      .dsl-token-value {
+        color: #020c7e;
+        font-style: italic;
+      }
+
+      .dsl-validation-message {
+        color: #020c7e;
+      }
+
+      .dsl-token-unknown {
+        color: red;
+      }
+
+      .dsl-ol-mapping-nary {
+        padding-left: 15px;
+      }
+
+      .dsl-ul-iterable {
+        list-style: decimal;
+      }
+    </style>
+    <style type="text/css">
+      .description-small {
+        padding-bottom: 4vh;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div class="top-bar">
+        <div class="logo">
+          <a href="https://github.com/doov-io/doov"
+            ><img
+              class="logo"
+              alt="dOOv on GitHub"
+              src="conference/img/doov_io_logo_dark_large.png"
+          /></a>
+        </div>
+        <div class="description"></div>
+      </div>
+      <div class="container">
+        <div class="section-name">doom-java</div>
+        <div class="subsection">
+          <h4>What is doom ?</h4>
+          TODO
+        </div>
+        <div class="subsection">
+          <h4>Install</h4>
+          TODO
+        </div>
+        <div class="subsection">
+          <h4>Getting Started</h4>
+          TODO
+        </div>
+      </div>
+      <div class="bottombar">
+        <a href="https://www.lesfurets.com"
+          ><img
+            class="lesfuretslogo"
+            alt="dOOv is an open source project from LesFurets.com"
+            src="conference/img/logo_lesfurets_blanc.png"
+        /></a>
+        <a href="conference/dsl_to_go_beyond_bean_validation_softshake.html"
+          ><img
+            class="softshakelogo"
+            alt="DSL.toGoBeyond(BeanValidation)"
+            src="conference/img/logo_softshake_2017.png"
+        /></a>
+        <a href="conference/dsl_to_go_beyond_bean_validation_snowcamp.html"
+          ><img
+            class="snowcamplogo"
+            alt="DSL.toGoBeyond(BeanValidation)"
+            src="conference/img/snowcamp/logo-transparent-small.png"
+        /></a>
+        <a href="conference/dsl_to_go_beyond_bean_validation_jdk_io.html"
+          ><img
+            class="jdkiologo"
+            alt="DSL.toGoBeyond(BeanValidation)"
+            src="conference/img/logo_jdk_io.png"
+        /></a>
+        <a href="conference/dsl_to_go_beyond_bean_validation_openrday.html"
+          ><img
+            class="openrdaylogo"
+            alt="DSL.toGoBeyond(BeanValidation)"
+            src="conference/img/logo-openrday.svg"
+        /></a>
+        <a
+          href="conference/how_to_share_business_logic_polyglot_java_ts_ocode19.html"
+          ><img
+            class="ocodeonelogo"
+            alt="How to Share the Business Logic in a Polyglot App Mixing Java and TypeScript - Code One 2019 [BOF3570]"
+            src="conference/img/oco19-logo_ping.png"
+        /></a>
+        <a
+          href="conference/how_to_create_dsl_with_lambda_builders_nantes_jug.html"
+          ><img
+            class="ocodeonelogo"
+            alt="How to Create a DSL with Lambda Builders - Nantes Java Usre Group"
+            src="conference/img/logo_nantes_jug.png"
+        /></a>
+      </div>
+    </div>
+  </body>
+</html>

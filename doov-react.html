@@ -3,14 +3,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>
-      dOOv ts, a fluent API for typesafe domain model validation written in
-      Typescript
-    </title>
-    <meta
-      name="description"
-      content="dOOv Typescript, a fluent API for typesafe domain model validation"
-    />
+    <title>dOOv React, doov-ts rules renderer</title>
+    <meta name="description" content="dOOv React, doov-ts rules renderer" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
@@ -380,17 +374,22 @@
         <div class="description"></div>
       </div>
       <div class="container">
-        <div class="section-name">doov-ts</div>
+        <div class="section-name">doov-react</div>
         <div class="subsection">
-          <h4>What is dOOv ?</h4>
+          <h4>What is doov-react ?</h4>
           <div class="desc">
             <span
-              >Business rules are sometimes difficult to manage. We give you a
-              tool named dOOv, for writing business rules with a minimal line of
-              code, using a fluent API, easier to write for developers and to
-              understand for business people. <br />You can use dOOv for
-              type-safe bean validation and mapping.</span
-            >
+              >doov-react is an extension tool for doov-ts. If you are not
+              familiar with doov-ts, you can take a look<a href="doov-ts.html"
+                >&nbsp;here&nbsp;</a
+              >to get more information before going further with doov-react.<br />Business
+              rules are not only read by developers, they are also viewed by
+              business people. To facilitate the comprehension of these business
+              rules, we developed a react component<span class="emph"
+                >&nbsp;&lt;DoovReact&gt;&nbsp;</span
+              >
+              for rendering these rules in a user-friendly form. <br
+            /></span>
           </div>
         </div>
         <div class="subsection">
@@ -398,7 +397,7 @@
           <div class="desc">
             <span
               ><span class="finger">☛&nbsp;</span
-              ><a href="https://www.npmjs.com/package/doov"
+              ><a href="https://www.npmjs.com/package/doov-react"
                 >access to npm repository</a
               ></span
             >
@@ -412,9 +411,9 @@
               padding: 0.5em;
             "
           ><code><span style="color: rgb(142, 144, 140);"># using npm</span>
-npm install doov
+npm install doov-react
 <span style="color: rgb(142, 144, 140);"># using yarn</span>
-yarn add doov</code></pre>
+yarn add doov-react</code></pre>
         </div>
         <div class="subsection">
           <h4>Getting Started</h4>
@@ -427,13 +426,41 @@ yarn add doov</code></pre>
               padding: 0.5em;
             "
           ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
-</span></code><code><span style="color: rgb(137, 89, 168);">import</span> * <span style="color: rgb(137, 89, 168);">as</span> DOOV <span style="color: rgb(137, 89, 168);">from</span> <span style="color: rgb(113, 140, 0);">'doov'</span>;</code></pre>
+</span></code><code><span style="color: rgb(137, 89, 168);">import</span> { DoovReact } <span style="color: rgb(137, 89, 168);">from</span> <span style="color: rgb(113, 140, 0);">'doov-react'</span>;
+</code></pre>
           <h5>Example Model</h5>
           <div class="desc">
             <span
-              >Here is an example Model and its instanciation we use for
+              >Here is the instanciation of an example model we use for
               demonstration, you can create your own model, inherited of Object
-              class</span
+              class<br
+            /></span>
+          </div>
+          <pre
+            style="
+              display: block;
+              overflow-x: auto;
+              background: rgba(34, 34, 34, 0.03);
+              color: rgb(77, 77, 76);
+              padding: 0.5em;
+            "
+          ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span></code><code><span style="color: rgb(142, 144, 140);">/* instance of example Model */</span>
+<span style="color: rgb(137, 89, 168);">let</span> model = <span style="color: rgb(137, 89, 168);">new</span> Model();
+<span style="color: rgb(137, 89, 168);">let</span> user = <span style="color: rgb(137, 89, 168);">new</span> User(<span style="color: rgb(245, 135, 31);">1</span>);
+user.name = <span style="color: rgb(113, 140, 0);">'test'</span>;
+user.b = <span style="color: rgb(245, 135, 31);">true</span>;
+model.user = user;</code></pre>
+          <h5>Rules construction</h5>
+          <div class="desc">
+            <span
+              >For more details about rules construction and usage, check
+              here.</span
             >
           </div>
           <pre
@@ -456,102 +483,35 @@ yarn add doov</code></pre>
 </span><span class="react-syntax-highlighter-line-number">10
 </span><span class="react-syntax-highlighter-line-number">11
 </span><span class="react-syntax-highlighter-line-number">12
-</span></code><code><span style="color: rgb(137, 89, 168);">class</span> Model {
-   <span style="color: rgb(137, 89, 168);">public</span> user: User;
-}
-<span style="color: rgb(137, 89, 168);">class</span> User {
-   <span style="color: rgb(137, 89, 168);">public</span> id: <span style="color: rgb(245, 135, 31);">number</span>;
-   <span style="color: rgb(137, 89, 168);">public</span> name?: <span style="color: rgb(245, 135, 31);">string</span>;
-   <span style="color: rgb(137, 89, 168);">public</span> links?: <span style="color: rgb(245, 135, 31);">string</span>[];
-   <span style="color: rgb(137, 89, 168);">public</span> b?: <span style="color: rgb(245, 135, 31);">boolean</span>;
-   <span style="color: rgb(137, 89, 168);">public</span> <span style="color: rgb(137, 89, 168);">constructor</span>(<span style="color: rgb(245, 135, 31);">id: <span style="color: rgb(245, 135, 31);">number</span></span>) {
-       <span style="color: rgb(137, 89, 168);">this</span>.id = id;
-   }
-}</code></pre>
-          <pre
-            style="
-              display: block;
-              overflow-x: auto;
-              background: rgba(34, 34, 34, 0.03);
-              color: rgb(77, 77, 76);
-              padding: 0.5em;
-            "
-          ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
-</span><span class="react-syntax-highlighter-line-number">2
-</span><span class="react-syntax-highlighter-line-number">3
-</span><span class="react-syntax-highlighter-line-number">4
-</span><span class="react-syntax-highlighter-line-number">5
-</span><span class="react-syntax-highlighter-line-number">6
-</span></code><code><span style="color: rgb(142, 144, 140);">/* instance of example Model */</span>
-<span style="color: rgb(137, 89, 168);">let</span> model = <span style="color: rgb(137, 89, 168);">new</span> Model();
-<span style="color: rgb(137, 89, 168);">let</span> user = <span style="color: rgb(137, 89, 168);">new</span> User(<span style="color: rgb(245, 135, 31);">1</span>);
-user.name = <span style="color: rgb(113, 140, 0);">'test'</span>;
-user.b = <span style="color: rgb(245, 135, 31);">true</span>;
-model.user = user;</code></pre>
-          <h5>Example Rules</h5>
-          <div class="desc">
-            <span>
-              1. First, build the path to access the place you want in your
-              model</span
-            >
-          </div>
-          <pre
-            style="
-              display: block;
-              overflow-x: auto;
-              background: rgba(34, 34, 34, 0.03);
-              color: rgb(77, 77, 76);
-              padding: 0.5em;
-            "
-          ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
-</span><span class="react-syntax-highlighter-line-number">2
-</span><span class="react-syntax-highlighter-line-number">3
-</span><span class="react-syntax-highlighter-line-number">4
-</span><span class="react-syntax-highlighter-line-number">5
-</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">13
+</span><span class="react-syntax-highlighter-line-number">14
+</span><span class="react-syntax-highlighter-line-number">15
+</span><span class="react-syntax-highlighter-line-number">16
 </span></code><code><span style="color: rgb(137, 89, 168);">const</span> USER_B: BooleanFunction = DOOV.boolean(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">boolean</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'b'</span>));
 <span style="color: rgb(137, 89, 168);">const</span> USER_ID: NumberFunction = DOOV.number(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">number</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'id'</span>));
 <span style="color: rgb(137, 89, 168);">const</span> USER_NAME: StringFunction = DOOV.string(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'name'</span>));
 <span style="color: rgb(137, 89, 168);">const</span> USER_LINK0 = DOOV.string(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>, <span style="color: rgb(245, 135, 31);">0</span>)); <span style="color: rgb(142, 144, 140);">//access to the first element of iterable</span>
 <span style="color: rgb(137, 89, 168);">const</span> USER_LINK1 = DOOV.string(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>, Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>, <span style="color: rgb(245, 135, 31);">1</span>)); <span style="color: rgb(142, 144, 140);">//access to the second element of iterable</span>
-<span style="color: rgb(137, 89, 168);">const</span> USER_LINKS = DOOV.iterable&lt;<span style="color: rgb(245, 135, 31);">string</span>&gt;(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>[], Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>))); <span style="color: rgb(142, 144, 140);">//direct access to iterable</span></code></pre>
-          <div class="desc">
-            <span>
-              2. Second, you can build any rules with fluent API, much more
-              natural, to check you model</span
-            >
-          </div>
-          <pre
-            style="
-              display: block;
-              overflow-x: auto;
-              background: rgba(34, 34, 34, 0.03);
-              color: rgb(77, 77, 76);
-              padding: 0.5em;
-            "
-          ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
-</span><span class="react-syntax-highlighter-line-number">2
-</span><span class="react-syntax-highlighter-line-number">3
-</span><span class="react-syntax-highlighter-line-number">4
-</span><span class="react-syntax-highlighter-line-number">5
-</span><span class="react-syntax-highlighter-line-number">6
-</span><span class="react-syntax-highlighter-line-number">7
-</span><span class="react-syntax-highlighter-line-number">8
-</span><span class="react-syntax-highlighter-line-number">9
-</span></code><code><span style="color: rgb(142, 144, 140);">/* Multiple validations rule */</span>
+<span style="color: rgb(137, 89, 168);">const</span> USER_LINKS = DOOV.iterable&lt;<span style="color: rgb(245, 135, 31);">string</span>&gt;(DOOV.field&lt;<span style="color: rgb(245, 135, 31);">string</span>[], Model&gt;(<span style="color: rgb(113, 140, 0);">'user'</span>, <span style="color: rgb(113, 140, 0);">'links'</span>))); <span style="color: rgb(142, 144, 140);">//direct access to iterable</span>
+
+<span style="color: rgb(142, 144, 140);">/* Multiple validations rule */</span>
 <span style="color: rgb(137, 89, 168);">const</span> multipleValidationsRule: ValidationRule = DOOV.validations(
       DOOV.when(USER_B.and(USER_ID.greaterOrEquals(<span style="color: rgb(245, 135, 31);">2</span>))).validate(),
       DOOV.when(USER_B.and(USER_NAME.endsWith(<span style="color: rgb(113, 140, 0);">'st'</span>))).validate())
 
-<span style="color: rgb(142, 144, 140);">/* Multiple mappingss Rule */</span>
-<span style="color: rgb(137, 89, 168);">const</span> multipleMappingsRule: MappingsRule = DOOV.mappingss(
+<span style="color: rgb(142, 144, 140);">/* Multiple mappings Rule */</span>
+<span style="color: rgb(137, 89, 168);">const</span> multipleMappingsRule: MappingRule = DOOV.mappings
       DOOV.map(USER_ID.mapTo(StringFunction, <span class="hljs-function"><span style="color: rgb(245, 135, 31);">v</span> =&gt;</span> <span style="color: rgb(113, 140, 0);">'link of '</span> + v)).to(USER_LINK0),
       DOOV.map(USER_NAME).to(USER_LINK1))</code></pre>
+          <h5>Read business rules</h5>
           <div class="desc">
-            <span>
-              3. Then, those rules can be executed on the model instanciated at
-              the beginning</span
-            >
+            <span
+              >Above produced rules are readable using the componant
+              <span class="emph">&lt;DoovReact&gt;</span>.<br />The only props
+              needed by this component is
+              <span class="emph">'metadata'</span> which is the readable
+              metadata of the rule.<br
+            /></span>
           </div>
           <pre
             style="
@@ -563,44 +523,83 @@ model.user = user;</code></pre>
             "
           ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
 </span><span class="react-syntax-highlighter-line-number">2
-</span><span class="react-syntax-highlighter-line-number">3
-</span><span class="react-syntax-highlighter-line-number">4
-</span><span class="react-syntax-highlighter-line-number">5
-</span><span class="react-syntax-highlighter-line-number">6
-</span><span class="react-syntax-highlighter-line-number">7
-</span><span class="react-syntax-highlighter-line-number">8
-</span><span class="react-syntax-highlighter-line-number">9
-</span></code><code><span style="color: rgb(142, 144, 140);">/* execution of ValidationRule return a Result */</span>
-<span style="color: rgb(137, 89, 168);">const</span> result: Result = multipleValidationRule.execute(model);
-<span style="color: rgb(245, 135, 31);">console</span>.log(result.value) 
-<span style="color: rgb(142, 144, 140);">// out: "true", because one of the validation rule is true </span>
-
-<span style="color: rgb(142, 144, 140);">/* execution of MappingsRule return a new instance Model which contains mapped values given the mappings rule */</span>
-<span style="color: rgb(137, 89, 168);">const</span> resultModel: Model = multipleMappingsRule.execute(model);
-<span style="color: rgb(245, 135, 31);">console</span>.log(links.get(resultModel))
- <span style="color: rgb(142, 144, 140);">// out: "['link of 1','test']"</span></code></pre>
-        </div>
-        <div class="subsection">
-          <h4>Try it yourself !</h4>
+</span></code><code><span style="color: rgb(200, 40, 41);">&lt;<span style="color: rgb(200, 40, 41);">DoovReact</span> <span class="hljs-attr">metadata</span>=<span style="color: rgb(113, 140, 0);">{multipleMappingsRule.metadata}/</span>&gt;</span>;
+<span style="color: rgb(200, 40, 41);">&lt;<span style="color: rgb(200, 40, 41);">DoovReact</span> <span class="hljs-attr">metadata</span>=<span style="color: rgb(113, 140, 0);">{multipleValidationsRule.metadata}/</span>&gt;</span>;
+</code></pre>
           <div class="desc">
             <span
-              >Doov can either be used for front-end, or back-end purpose. We
-              offer two CodeSandboxes for you to experiment easily.
-              <br />Experiment doov-ts :
-              <span class="finger">&nbsp;☛&nbsp;</span
-              ><a href="TODO">doov-ts playground</a> <br />Experiment doov-ts
-              with a concret business case :
-              <span class="finger">&nbsp;☛&nbsp;</span
-              ><a href="TODO">pizza composer</a></span
+              >Here are the rendering produced by using &lt;DoovReact&gt;</span
             >
           </div>
-        </div>
-        <div class="subsection">
-          <h4>Read business rule</h4>
+          <div class="rendering">
+            <div class="doov-react">
+              <ul class="dsl-ul-mapping-nary">
+                <li class="dsl-li-nary">
+                  <span class="dsl-token-single-mapping"
+                    ><span class="dsl-token-operator">map</span>&nbsp;<span
+                      class="dsl-token-field"
+                      >user.id</span
+                    >&nbsp;<span class="dsl-token-operator">-function-</span
+                    >&nbsp;<span class="dsl-token-operator"
+                      >v =&gt; 'link of ' + v</span
+                    >&nbsp;<span class="dsl-token-operator">to</span>&nbsp;<span
+                      class="dsl-token-field"
+                      >user.links.0</span
+                    ></span
+                  >&nbsp;
+                </li>
+                <li class="dsl-li-nary">
+                  <span class="dsl-token-single-mapping"
+                    ><span class="dsl-token-operator">map</span>&nbsp;<span
+                      class="dsl-token-field"
+                      >user.name</span
+                    >&nbsp;<span class="dsl-token-operator">to</span>&nbsp;<span
+                      class="dsl-token-field"
+                      >user.links.1</span
+                    ></span
+                  >&nbsp;
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="rendering">
+            <div class="doov-react">
+              <div class="dsl-validation-rule">
+                <span class="dsl-token-when">when</span>
+                <ul class="dsl-ul-when">
+                  <li class="dsl-li-binary">
+                    <span class="dsl-token-field">user.b</span><br /><span
+                      class="dsl-token-operator"
+                      >and</span
+                    >&nbsp;<span class="dsl-token-field">user.id</span
+                    >&nbsp;<span class="dsl-token-operator">&gt;=</span
+                    >&nbsp;<span class="dsl-token-value">2</span>
+                  </li>
+                </ul>
+                <span class="dsl-token-validate">validate</span>
+              </div>
+              <div class="dsl-validation-rule">
+                <span class="dsl-token-when">when</span>
+                <ul class="dsl-ul-when">
+                  <li class="dsl-li-binary">
+                    <span class="dsl-token-field">user.b</span><br /><span
+                      class="dsl-token-operator"
+                      >and</span
+                    >&nbsp;<span class="dsl-token-field">user.name</span
+                    >&nbsp;<span class="dsl-token-operator">ends with</span
+                    >&nbsp;<span class="dsl-token-value">"st"</span>
+                  </li>
+                </ul>
+                <span class="dsl-token-validate">validate</span>
+              </div>
+            </div>
+          </div>
+          <h5>Read business rules with customized names</h5>
           <div class="desc">
             <span
-              >Rules produced with doov-ts are readable in plain texte as
-              below</span
+              >The optional props <span class="emph">'field'</span> allows you
+              to customize any field name you want to ease the comprehension
+              even more.</span
             >
           </div>
           <pre
@@ -612,21 +611,45 @@ model.user = user;</code></pre>
               padding: 0.5em;
             "
           ><code style="float: left; padding-right: 10px;"><span class="react-syntax-highlighter-line-number">1
-</span><span class="react-syntax-highlighter-line-number">2
-</span></code><code><span style="color: rgb(245, 135, 31);">console</span>.log(multipleMappingsRule.metadata.readable);
-<span style="color: rgb(142, 144, 140);">// out: "user.id function function (v) { return 'link of ' + v; } -&gt; user.links.0 , user.name -&gt; user.links.1"</span></code></pre>
-          <div class="desc">
-            <span
-              >But we offer a renderer to get doov-ts rules to html for a easier
-              understanding, for more detail<span class="finger"
-                >&nbsp;&nbsp;☛&nbsp;</span
-              ><a href="doov-react.html">doov-react</a></span
-            >
+</span></code><code><span style="color: rgb(200, 40, 41);">&lt;<span style="color: rgb(200, 40, 41);">DoovReact</span> <span class="hljs-attr">metadata</span>=<span style="color: rgb(113, 140, 0);">{multipleValidationsRule.metadata}</span> <span class="hljs-attr">fields</span>=<span style="color: rgb(113, 140, 0);">{{</span>'<span class="hljs-attr">user.b</span>'<span class="hljs-attr">:</span>'<span class="hljs-attr">hasVisited</span>','<span class="hljs-attr">user.name</span>'<span class="hljs-attr">:</span>'<span class="hljs-attr">name</span>','<span class="hljs-attr">user.id</span>'<span class="hljs-attr">:</span>'<span class="hljs-attr">identifier</span>'}}/&gt;</span>;
+</code></pre>
+          <div class="rendering">
+            <div class="doov-react">
+              <div class="dsl-validation-rule">
+                <span class="dsl-token-when">when</span>
+                <ul class="dsl-ul-when">
+                  <li class="dsl-li-binary">
+                    <span class="dsl-token-field">hasVisited</span><br /><span
+                      class="dsl-token-operator"
+                      >and</span
+                    >&nbsp;<span class="dsl-token-field">identifier</span
+                    >&nbsp;<span class="dsl-token-operator">&gt;=</span
+                    >&nbsp;<span class="dsl-token-value">2</span>
+                  </li>
+                </ul>
+                <span class="dsl-token-validate">validate</span>
+              </div>
+              <div class="dsl-validation-rule">
+                <span class="dsl-token-when">when</span>
+                <ul class="dsl-ul-when">
+                  <li class="dsl-li-binary">
+                    <span class="dsl-token-field">hasVisited</span><br /><span
+                      class="dsl-token-operator"
+                      >and</span
+                    >&nbsp;<span class="dsl-token-field">name</span>&nbsp;<span
+                      class="dsl-token-operator"
+                      >ends with</span
+                    >&nbsp;<span class="dsl-token-value">"st"</span>
+                  </li>
+                </ul>
+                <span class="dsl-token-validate">validate</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="github">
-          <a class="gitbutton" href="https://github.com/doov-io/doov"
-            >Meet dOOv on GitHub &gt;&gt;</a
+          <a class="gitbutton" href="https://github.com/doov-io/doov-react"
+            >Meet dOOv React on GitHub &gt;&gt;</a
           >
         </div>
       </div>
